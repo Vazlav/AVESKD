@@ -1,0 +1,648 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.site_pc.avews.org">
+	<objectType name="reflist_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string" form="Element"/>
+		<property name="extra_info" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.site_pc.avews.org" name="reflist" base="d2p1:reflist_string">
+		<property name="string" type="d2p1:reflist_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="query_terms">
+		<property name="user_type_id" type="xs:integer"/>
+		<property name="interval_begin" type="xs:dateTime"/>
+		<property name="interval_end" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="required_parameters" type="d3p1:term" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="query_term" type="d3p1:term" upperBound="-1"/>
+		<property name="web_user_id" type="xs:string"/>
+	</objectType>
+	<objectType name="term">
+		<property name="left_part" type="xs:string"/>
+		<property name="comp_type" type="xs:string"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="right_part" type="d3p1:string_list" upperBound="1"/>
+		<property name="right_part_val_type" type="xs:string"/>
+	</objectType>
+	<objectType name="string_list">
+		<property name="string_value" type="xs:string" upperBound="-1"/>
+	</objectType>
+	<objectType name="rep_params">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="rep_parameter" type="d3p1:rep_parameter" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rep_parameter">
+		<property name="name" type="xs:string"/>
+		<property name="type" type="xs:string"/>
+	</objectType>
+	<objectType name="rep_string">
+		<property name="rep_cell_value" type="xs:anySimpleType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rep_table">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="rep_string" type="d3p1:rep_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="report">
+		<property name="result_guid" type="xs:string"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="rep_columns" type="d3p1:rep_string"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="rep_table" type="d3p1:rep_table"/>
+	</objectType>
+	<objectType name="price_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="name" type="xs:string" nillable="true"/>
+		<property name="price" type="xs:float" nillable="true"/>
+		<property name="supply_term" type="xs:integer" nillable="true"/>
+		<property name="zhnvls" type="xs:boolean" nillable="true"/>
+		<property name="podkat_code" type="xs:integer" nillable="true"/>
+		<property name="podkat_name" type="xs:string" nillable="true"/>
+		<property name="ap_active" type="xs:boolean" nillable="true"/>
+		<property name="hyper" type="xs:boolean" nillable="true"/>
+		<property name="stm" type="xs:boolean" nillable="true"/>
+		<property name="brand_name" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="price_list_string" type="d3p1:price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="order_data">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="order_id" type="xs:string"/>
+		<property name="order_date" type="xs:dateTime"/>
+		<property name="delivery_date" type="xs:date"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="client" type="d3p1:client_info"/>
+		<property name="site_id" type="xs:integer" nillable="true"/>
+		<property name="defektura" type="xs:boolean" nillable="true"/>
+		<property name="comment" type="xs:string"/>
+		<property name="cardbarcode" type="xs:string" nillable="true"/>
+		<property name="hospital" type="xs:boolean"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="order_table" type="d3p1:order_table"/>
+		<property name="for_clinic" type="xs:boolean" nillable="true"/>
+	</objectType>
+	<objectType name="client_info">
+		<property name="fio" type="xs:string"/>
+		<property name="phone" type="xs:string"/>
+		<property name="email" type="xs:string"/>
+	</objectType>
+	<objectType name="order_table">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="order_string" type="d3p1:order_string" upperBound="-1"/>
+	</objectType>
+	<objectType name="order_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+		<property name="from_apt_code" type="xs:integer"/>
+		<property name="supp_code" type="xs:integer"/>
+		<property name="supp_good_code" type="xs:string"/>
+		<property name="supp_good_name" type="xs:string"/>
+		<property name="supp_good_price" type="xs:float"/>
+		<property name="supp_good_godn" type="xs:date"/>
+		<property name="predzakaz" type="xs:boolean" nillable="true"/>
+	</objectType>
+	<objectType name="camera_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="apt_name" type="xs:string"/>
+		<property name="camera_url" type="xs:string"/>
+	</objectType>
+	<objectType name="camera_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="camera_list_string" type="d3p1:camera_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="suppliers_list_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="manager" type="xs:string" nillable="true"/>
+		<property name="active" type="xs:boolean"/>
+	</objectType>
+	<objectType name="suppliers_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="suppliers_list_string" type="d3p1:suppliers_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="ap_active" type="xs:boolean"/>
+	</objectType>
+	<objectType name="goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_list_string" type="d3p1:goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="select_goods_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt" type="xs:integer"/>
+	</objectType>
+	<objectType name="select_goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="select_goods_list_string" type="d3p1:select_goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="subject_list_string">
+		<property name="subject_name" type="xs:string"/>
+		<property name="subject_code" type="xs:integer"/>
+		<property name="apt_code" type="xs:integer"/>
+	</objectType>
+	<objectType name="subject_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="subject_list_string" type="d3p1:subject_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_price_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+		<property name="qnt" type="xs:float"/>
+		<property name="qnt_apt" type="xs:float" nillable="true"/>
+		<property name="active" type="xs:boolean" nillable="true"/>
+	</objectType>
+	<objectType name="goods_price">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_price_string" type="d3p1:goods_price_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="spec_price_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="price" type="xs:float"/>
+		<property name="date_start" type="xs:date"/>
+		<property name="date_end" type="xs:string"/>
+	</objectType>
+	<objectType name="spec_price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="spec_price_list_string" type="d3p1:spec_price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="spec_price_import_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+	</objectType>
+	<objectType name="spec_price_import">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="spec_price_import_string" type="d3p1:spec_price_import_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="assortment_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="group_name" type="xs:string"/>
+		<property name="q_min" type="xs:integer"/>
+		<property name="q_max" type="xs:integer"/>
+		<property name="nz_qnt" type="xs:float"/>
+		<property name="price" type="xs:float"/>
+	</objectType>
+	<objectType name="assortment_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="assortment_list_string" type="d3p1:assortment_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="assortment_add_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="nz_qnt" type="xs:float"/>
+	</objectType>
+	<objectType name="assortment_add_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="assortment_add_list_string" type="d3p1:assortment_add_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="assortment_delete_list_string">
+		<property name="good_code" type="xs:integer"/>
+	</objectType>
+	<objectType name="assortment_delete_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="assortment_delete_list_string" type="d3p1:assortment_delete_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="suppliers_goods_list_string">
+		<property name="subject_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="good_name" type="xs:string"/>
+		<property name="producer_name" type="xs:string"/>
+	</objectType>
+	<objectType name="suppliers_goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="suppliers_goods_list_string" type="d3p1:suppliers_goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="revision_goods_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="good_name" type="xs:string"/>
+		<property name="incoming_number" type="xs:integer"/>
+		<property name="incoming_date" type="xs:date"/>
+		<property name="suppliers_code" type="xs:integer"/>
+		<property name="suppliers_name" type="xs:string"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="blocking" type="xs:boolean"/>
+	</objectType>
+	<objectType name="revision_goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="revision_goods_list_string" type="d3p1:revision_goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="defektura_goodslist_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="fact" type="xs:float" nillable="true"/>
+		<property name="comment" type="xs:string"/>
+	</objectType>
+	<objectType name="defektura_goodslist">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="defektura_goodslist_string" type="d3p1:defektura_goodslist_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="spisok_pretenziy">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="pretenzii" type="d3p1:pretenziya" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="pretenziya">
+		<property name="doc_number" type="xs:string"/>
+		<property name="supp_code" type="xs:integer"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="invoice_date" type="xs:date"/>
+		<property name="apt_sotr" type="xs:string"/>
+		<property name="source" type="xs:string"/>
+		<property name="expired" type="xs:boolean"/>
+		<property name="doc_number_lk" type="xs:string"/>
+		<property name="doc_number_supp" type="xs:string"/>
+		<property name="internet_order_number" type="xs:string"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="tovary" type="d3p1:tovar_pretenzii" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="tovar_pretenzii">
+		<property name="good_code" type="xs:integer"/>
+		<property name="good_name" type="xs:string"/>
+		<property name="qnt_brak" type="xs:integer"/>
+		<property name="qnt_nedovoz" type="xs:integer"/>
+		<property name="qnt_izl" type="xs:integer"/>
+		<property name="serial_num" type="xs:string"/>
+		<property name="barcode" type="xs:string"/>
+		<property name="apt_comment" type="xs:string"/>
+		<property name="pretenz_type_id" type="xs:integer"/>
+		<property name="supp_result_id" type="xs:integer"/>
+		<property name="supp_reply_date" type="xs:date"/>
+		<property name="supp_solution_date" type="xs:date"/>
+		<property name="supp_sotr" type="xs:string"/>
+		<property name="supp_comment" type="xs:string"/>
+		<property name="batch_code" type="xs:integer"/>
+	</objectType>
+	<objectType name="iorder_info">
+		<property name="status" type="xs:string"/>
+		<property name="prepayment_sum" type="xs:float"/>
+		<property name="comment" type="xs:string"/>
+	</objectType>
+	<objectType name="suppliers_info">
+		<property name="supplier_code" type="xs:integer"/>
+		<property name="supplier_name" type="xs:string"/>
+		<property name="contact_name" type="xs:string"/>
+		<property name="contact_mail" type="xs:string"/>
+		<property name="ftp_adress" type="xs:string"/>
+		<property name="ftp_user" type="xs:string"/>
+		<property name="ftp_password" type="xs:string"/>
+		<property name="pretenz_mail" type="xs:string"/>
+		<property name="manager_name" type="xs:string"/>
+		<property name="manager_login" type="xs:string"/>
+	</objectType>
+	<objectType name="nelikvidy_list_string">
+		<property name="id" type="xs:integer"/>
+		<property name="date" type="xs:date"/>
+		<property name="goods_code" type="xs:integer"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="qnt" type="xs:float"/>
+		<property name="serial" type="xs:string"/>
+		<property name="type" type="xs:integer"/>
+	</objectType>
+	<objectType name="nelikvidy_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="nelikvidy_list_string" type="d3p1:nelikvidy_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_code_list_string">
+		<property name="good_code" type="xs:integer"/>
+	</objectType>
+	<objectType name="goods_code_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_code_list_string" type="d3p1:goods_code_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="move_goods_list_string">
+		<property name="on_date" type="xs:date"/>
+		<property name="product" type="xs:integer"/>
+		<property name="loc" type="xs:integer"/>
+		<property name="supp" type="xs:integer"/>
+		<property name="mov_qnt" type="xs:float"/>
+		<property name="mov_sum_pur" type="xs:float"/>
+		<property name="mov_sum_rtl" type="xs:float"/>
+		<property name="pur_qnt" type="xs:float"/>
+		<property name="pur_sum_pur" type="xs:float"/>
+		<property name="pur_sum_rtl" type="xs:float"/>
+		<property name="rtl_qnt" type="xs:float"/>
+		<property name="rtl_sum_pur" type="xs:float"/>
+		<property name="rtl_sum_rtl" type="xs:float"/>
+		<property name="rtl_sum_fct" type="xs:float"/>
+	</objectType>
+	<objectType name="move_goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="move_goods_list_string" type="d3p1:move_goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="move_order_list_string">
+		<property name="from_loc" type="xs:integer"/>
+		<property name="to_loc" type="xs:integer"/>
+		<property name="doc_number" type="xs:string"/>
+		<property name="doc_date" type="xs:date"/>
+		<property name="auto" type="xs:boolean"/>
+		<property name="now" type="xs:boolean"/>
+		<property name="therm" type="xs:boolean"/>
+		<property name="summ" type="xs:float"/>
+		<property name="qnt_pos" type="xs:integer"/>
+		<property name="qnt_pack" type="xs:integer"/>
+		<property name="qnt_plac" type="xs:integer"/>
+		<property name="apt_comment" type="xs:string"/>
+		<property name="apt_sotr" type="xs:string"/>
+		<property name="reg_date" type="xs:date"/>
+		<property name="accept_date" type="xs:date"/>
+	</objectType>
+	<objectType name="move_order_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="move_order_list_string" type="d3p1:move_order_list_string" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="mnn_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="mnn" type="xs:string"/>
+	</objectType>
+	<objectType name="mnn_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="mnn_string" type="d3p1:mnn_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="apt_info_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="apt_name" type="xs:string"/>
+		<property name="goods_day_limit" type="xs:integer"/>
+		<property name="buh_name" type="xs:string"/>
+		<property name="buh_mail" type="xs:string"/>
+		<property name="office_buh_name" type="xs:string"/>
+		<property name="office_buh_mail" type="xs:string"/>
+		<property name="firm_code" type="xs:integer"/>
+		<property name="firm_name" type="xs:string"/>
+		<property name="hyper" type="xs:boolean"/>
+		<property name="clinic" type="xs:boolean"/>
+	</objectType>
+	<objectType name="apt_info">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="apt_info_string" type="d3p1:apt_info_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="apt_price_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="name" type="xs:string" nillable="true"/>
+		<property name="mnf" type="xs:string" nillable="true"/>
+		<property name="price" type="xs:float" nillable="true"/>
+		<property name="qnt" type="xs:float" nillable="true"/>
+	</objectType>
+	<objectType name="apt_price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="apt_price_list_string" type="d3p1:apt_price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="move_doc_list_string">
+		<property name="from_loc" type="xs:integer"/>
+		<property name="to_loc" type="xs:integer"/>
+		<property name="doc_number" type="xs:string"/>
+	</objectType>
+	<objectType name="move_doc_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="move_doc_list_string" type="d3p1:move_doc_list_string" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="pretenz_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt_brak" type="xs:float"/>
+		<property name="qnt_nedovoz" type="xs:float"/>
+		<property name="qnt_izl" type="xs:float"/>
+		<property name="serial_num" type="xs:string"/>
+		<property name="barcode" type="xs:string"/>
+		<property name="apt_comment" type="xs:string"/>
+	</objectType>
+	<objectType name="pretenz_list">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="sup_code" type="xs:integer"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="invoice_date" type="xs:date" nillable="true"/>
+		<property name="pretenz_type" type="xs:string"/>
+		<property name="doc_number_lk" type="xs:string"/>
+		<property name="doc_date_lk" type="xs:date"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="pretenz_list_string" type="d3p1:pretenz_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_price_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+	</objectType>
+	<objectType name="goods_price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_price_list_string" type="d3p1:goods_price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="sale_goods_of_day_list_string">
+		<property name="sotr_code" type="xs:integer"/>
+		<property name="sotr_name" type="xs:string"/>
+		<property name="sotr_tab_num" type="xs:string"/>
+		<property name="sotr_pfr_num" type="xs:string"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="qnt_pos" type="xs:float"/>
+		<property name="qnt_pack" type="xs:float"/>
+		<property name="sum_sales" type="xs:float"/>
+		<property name="sum_bonus" type="xs:float"/>
+	</objectType>
+	<objectType name="sale_goods_of_day_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="sale_goods_of_day_list_string" type="d3p1:sale_goods_of_day_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="priority_list_string">
+		<property name="sotr_code" type="xs:integer"/>
+		<property name="sotr_name" type="xs:string"/>
+		<property name="sotr_tab_num" type="xs:string"/>
+		<property name="sotr_pfr_num" type="xs:string"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt_pack" type="xs:float"/>
+		<property name="sum_sales" type="xs:float"/>
+		<property name="sum_bonus" type="xs:float"/>
+	</objectType>
+	<objectType name="priority_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="priority_list_string" type="d3p1:priority_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="izlishki_list_string">
+		<property name="doc_number" type="xs:string"/>
+		<property name="doc_date" type="xs:date"/>
+		<property name="receipt_date" type="xs:date"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="invoice_date" type="xs:date"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="good_supp_code" type="xs:string"/>
+		<property name="barcode" type="xs:string"/>
+		<property name="good_name" type="xs:string"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="summ" type="xs:float"/>
+		<property name="pretenz_type_id" type="xs:integer"/>
+		<property name="apt_comment" type="xs:string"/>
+	</objectType>
+	<objectType name="izlishki_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="izlishki_list_string" type="d3p1:izlishki_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="sotr_info_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="tab_num" type="xs:string"/>
+		<property name="pfr_num" type="xs:string"/>
+	</objectType>
+	<objectType name="sotr_info">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="sotr_info_string" type="d3p1:sotr_info_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="apt_firm_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="firm_code" type="xs:integer"/>
+		<property name="firm_name" type="xs:string"/>
+	</objectType>
+	<objectType name="apt_firm_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="apt_firm_list_string" type="d3p1:apt_firm_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="opt_doc_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="doc_number" type="xs:string"/>
+	</objectType>
+	<objectType name="opt_doc_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="opt_doc_list_string" type="d3p1:opt_doc_list_string" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="pfr_num_list_string">
+		<property name="pfr_num" type="xs:string"/>
+	</objectType>
+	<objectType name="pfr_num_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="pfr_num_list_string" type="d3p1:pfr_num_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="effectiv_matrix_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="pfr_num" type="xs:string"/>
+		<property name="crn_1" type="xs:float"/>
+		<property name="crn_2" type="xs:float"/>
+		<property name="crn_3" type="xs:float"/>
+		<property name="crn_dev_1" type="xs:float"/>
+		<property name="crn_dev_2" type="xs:float"/>
+		<property name="crn_dev_3" type="xs:float"/>
+		<property name="level" type="xs:integer"/>
+		<property name="level_up" type="xs:integer"/>
+	</objectType>
+	<objectType name="effectiv_matrix">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="effectiv_matrix_string" type="d3p1:effectiv_matrix_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="top_goods_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="symptom_name" type="xs:string"/>
+		<property name="qnt" type="xs:float"/>
+		<property name="crn_sum" type="xs:float"/>
+	</objectType>
+	<objectType name="top_goods_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="top_goods_list_string" type="d3p1:top_goods_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="nelikvid_balance_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="check_date" type="xs:date"/>
+		<property name="qnt_start" type="xs:float"/>
+		<property name="qnt_end" type="xs:float"/>
+	</objectType>
+	<objectType name="nelikvid_balance_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="nelikvid_balance_list_string" type="d3p1:nelikvid_balance_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="defektura_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="fact" type="xs:float" nillable="true"/>
+		<property name="comment" type="xs:string"/>
+	</objectType>
+	<objectType name="defektura_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="defektura_list_string" type="d3p1:defektura_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="oriola_price_list_string">
+		<property name="good_name_gdp" type="xs:string"/>
+		<property name="good_name_ave" type="xs:string"/>
+		<property name="good_code_gdp" type="xs:string"/>
+		<property name="good_code_ave" type="xs:integer"/>
+		<property name="good_code_ahc" type="xs:string"/>
+		<property name="qnt_1" type="xs:integer"/>
+		<property name="qnt_2" type="xs:integer"/>
+		<property name="qnt_3" type="xs:integer"/>
+		<property name="price1" type="xs:float"/>
+		<property name="price2" type="xs:float"/>
+		<property name="godn" type="xs:date"/>
+		<property name="ser" type="xs:string"/>
+		<property name="nds" type="xs:integer"/>
+	</objectType>
+	<objectType name="oriola_price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="oriola_price_list_string" type="d3p1:oriola_price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="apt_info_2_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="metro" type="xs:string"/>
+		<property name="time" type="xs:string"/>
+		<property name="qnt_workers" type="xs:integer"/>
+		<property name="qnt_cashbox" type="xs:integer"/>
+		<property name="sum_sales" type="xs:float"/>
+	</objectType>
+	<objectType name="apt_info_2">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="apt_info_2_string" type="d3p1:apt_info_2_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_in_matrix_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="ap_group" type="xs:string"/>
+	</objectType>
+	<objectType name="goods_in_matrix_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_in_matrix_list_string" type="d3p1:goods_in_matrix_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_ost_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="qnt_ost" type="xs:float"/>
+		<property name="price" type="xs:float"/>
+		<property name="price_rozn" type="xs:float"/>
+	</objectType>
+	<objectType name="goods_ost_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="goods_ost_list_string" type="d3p1:goods_ost_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ind_price_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+		<property name="qnt" type="xs:float"/>
+		<property name="supp_code" type="xs:integer" nillable="true"/>
+		<property name="supp_days" type="xs:integer" nillable="true"/>
+		<property name="supp_good_code" type="xs:string" nillable="true"/>
+		<property name="supp_good_name" type="xs:string" nillable="true"/>
+		<property name="supp_good_price" type="xs:float"/>
+		<property name="supp_good_godn" type="xs:date"/>
+		<property name="hospital" type="xs:boolean" nillable="true"/>
+	</objectType>
+	<objectType name="ind_price_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="ind_price_list_string" type="d3p1:ind_price_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="transferorder_table">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt" type="xs:float"/>
+		<property name="summ" type="xs:float"/>
+	</objectType>
+	<objectType name="transferorder_data">
+		<property name="from_loc" type="xs:integer"/>
+		<property name="to_loc" type="xs:integer"/>
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="transferorder_table" type="d3p1:transferorder_table" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="iorder_buy_info_list_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="qnt_buy" type="xs:integer"/>
+	</objectType>
+	<objectType name="iorder_buy_info_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="iorder_buy_info_list_string" type="d3p1:iorder_buy_info_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CashOnTerminal">
+		<property name="CourierId" type="xs:string"/>
+		<property name="CourierName" type="xs:string" nillable="true"/>
+		<property name="TransferOrderId" type="xs:integer"/>
+		<property name="TerminalId" type="xs:string"/>
+		<property name="Receipt_Number" type="xs:string"/>
+		<property name="Transaction" type="xs:string"/>
+		<property name="DatetimeTransaction" type="xs:dateTime"/>
+		<property name="Amount" type="xs:float"/>
+		<property name="ComissAmount" type="xs:float"/>
+		<property name="Currency" type="xs:string"/>
+	</objectType>
+	<objectType name="ReportCashOnTerminal">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="CashOnTerminal" type="d3p1:CashOnTerminal" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="missed_sales_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="dev_begin" type="xs:integer"/>
+		<property name="dev_end" type="xs:integer"/>
+		<property name="sum_missed_sales" type="xs:float"/>
+	</objectType>
+	<objectType name="missed_sales_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="missed_sales_list_string" type="d3p1:missed_sales_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="apt_regim_list_string">
+		<property name="time_begin" type="xs:time"/>
+		<property name="time_end" type="xs:time"/>
+		<property name="hours_plan" type="xs:float"/>
+	</objectType>
+	<objectType name="apt_regim_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="apt_regim_list_string" type="d3p1:apt_regim_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="invoice_status">
+		<property name="found" type="xs:boolean"/>
+		<property name="posted" type="xs:boolean"/>
+		<property name="deleted" type="xs:boolean"/>
+		<property name="status_in_office" type="xs:string"/>
+		<property name="status_in_apt" type="xs:string"/>
+		<property name="goods_receipt_date" type="xs:date"/>
+	</objectType>
+	<objectType name="all_apt_regim_list_string">
+		<property name="apt_code" type="xs:integer"/>
+		<property name="day_of_week" type="xs:integer"/>
+		<property name="time_begin" type="xs:time"/>
+		<property name="time_end" type="xs:time"/>
+		<property name="hours_plan" type="xs:float"/>
+	</objectType>
+	<objectType name="all_apt_regim_list">
+		<property xmlns:d3p1="http://www.site_pc.avews.org" name="all_apt_regim_list_string" type="d3p1:all_apt_regim_list_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="relocOrder_info">
+		<property name="relocOrder_date" type="xs:date"/>
+		<property name="relocOrder_guid" type="xs:string"/>
+	</objectType>
+</package>

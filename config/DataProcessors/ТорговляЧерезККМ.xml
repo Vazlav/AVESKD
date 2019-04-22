@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<DataProcessor uuid="b4f0bd95-9cf2-4a4c-ac01-ba9ed01134f2">
+		<InternalInfo>
+			<xr:GeneratedType name="DataProcessorObject.ТорговляЧерезККМ" category="Object">
+				<xr:TypeId>c32360a6-8a5f-499a-ac95-689a717a088a</xr:TypeId>
+				<xr:ValueId>e3e18a91-0764-4a46-95d7-fa2f684a6e08</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DataProcessorManager.ТорговляЧерезККМ" category="Manager">
+				<xr:TypeId>8a35f734-3a1d-4bd4-a70e-4e97d40d933e</xr:TypeId>
+				<xr:ValueId>1da326d5-b6a9-4888-888e-fe030c340089</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ТорговляЧерезККМ</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Торговля через ККМ</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<DefaultForm>DataProcessor.ТорговляЧерезККМ.Form.Форма</DefaultForm>
+			<AuxiliaryForm/>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ExtendedPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Form>Форма</Form>
+			<Form>ПараметрыСтрокиДляДобавленияВЧек</Form>
+			<Form>ГенераторПароляОбманаЖВ</Form>
+			<Template>ЛогОшибок</Template>
+			<Template>РасшифровкаОстатка</Template>
+		</ChildObjects>
+	</DataProcessor>
+</MetaDataObject>

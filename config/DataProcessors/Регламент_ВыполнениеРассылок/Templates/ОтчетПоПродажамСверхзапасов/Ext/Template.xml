@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПартияКод</dataPath>
+			<field>ПартияКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФирмаКод</dataPath>
+			<field>ФирмаКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоПродаж</dataPath>
+			<field>КолвоПродаж</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во продаж за день</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТоварКод</dataPath>
+			<field>ТоварКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоПродажСреднееДо</dataPath>
+			<field>КолвоПродажСреднееДо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Среднедневное кол-во продаж (01-06.12.2016), уп.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДСЗакуп</dataPath>
+			<field>СтавкаНДСЗакуп</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Кластер</dataPath>
+			<field>Кластер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кластер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоОстатокНаНачало</dataPath>
+			<field>КолвоОстатокНаНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во остатка на 07.12.2016 (начало дня), уп.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПоступленияПорядок</dataPath>
+			<field>ВидПоступленияПорядок</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКод</dataPath>
+			<field>СкладКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоОстаток</dataPath>
+			<field>КолвоОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во остаток на конец дня</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоПродажЗаДеньБаза</dataPath>
+			<field>КолвоПродажЗаДеньБаза</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во продаж за день (01-06.12.2016)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ТоварыДляРаспродажиСостав.Ссылка КАК Кластер,
+	ТоварыДляРаспродажиСостав.Товар,
+	ВЫБОР
+		КОГДА ТоварыСТМСрезПоследних.ТипСТМ ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК СТМ
+ПОМЕСТИТЬ втКластеры
+ИЗ
+	Справочник.ТоварыДляРаспродажи.Состав КАК ТоварыДляРаспродажиСостав
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ТоварыСТМ.СрезПоследних(, ) КАК ТоварыСТМСрезПоследних
+		ПО ТоварыДляРаспродажиСостав.Товар = ТоварыСТМСрезПоследних.Товар
+			И (ТоварыСТМСрезПоследних.ТипСТМ В (ЗНАЧЕНИЕ(Перечисление.ТипыСТМ.СТМ), ЗНАЧЕНИЕ(Перечисление.ТипыСТМ.УсловныйСТМ)))
+{ГДЕ
+	ТоварыДляРаспродажиСостав.Ссылка.* КАК Кластер}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Матрица.Аптека,
+	Матрица.Товар,
+	втКластеры.Кластер,
+	втКластеры.СТМ,
+	ВЫБОР
+		КОГДА Неликвиды.КодТовара ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК Блок
+ПОМЕСТИТЬ втМатрица
+ИЗ
+	РегистрСведений.Матрица КАК Матрица
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втКластеры КАК втКластеры
+		ПО Матрица.Товар = втКластеры.Товар
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Неликвиды КАК Неликвиды
+		ПО Матрица.Аптека = Неликвиды.Аптека
+			И Матрица.Товар.Код = Неликвиды.КодТовара
+ГДЕ
+	Матрица.ГруппаАПИтог В ("A", "B", "C", "D")
+{ГДЕ
+	Матрица.Аптека.* КАК Склад}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втКластеры
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	втМатрица.Аптека,
+	втМатрица.Кластер
+ПОМЕСТИТЬ втБлок
+ИЗ
+	втМатрица КАК втМатрица
+ГДЕ
+	втМатрица.СТМ
+	И втМатрица.Блок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втМатрица.Аптека,
+	втМатрица.Товар
+ПОМЕСТИТЬ втМатрицаБлок
+ИЗ
+	втМатрица КАК втМатрица
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втБлок КАК втБлок
+		ПО втМатрица.Аптека = втБлок.Аптека
+			И втМатрица.Кластер = втБлок.Кластер
+ГДЕ
+	втМатрица.СТМ = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втБлок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втМатрица
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	втМатрицаБлок.Аптека КАК Ссылка,
+	втМатрицаБлок.Аптека.Код КАК Код
+ПОМЕСТИТЬ втСклады
+ИЗ
+	втМатрицаБлок КАК втМатрицаБлок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	втМатрицаБлок.Товар КАК Ссылка,
+	втМатрицаБлок.Товар.Код КАК Код
+ПОМЕСТИТЬ втТовары
+ИЗ
+	втМатрицаБлок КАК втМатрицаБлок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(ВЫРАЗИТЬ(УЗ_ПартииОстатки.КоличествоОстаток / УЗ_Партии.К КАК ЧИСЛО(15, 2))) КАК КолвоОстаток
+ПОМЕСТИТЬ втОстатки
+ИЗ
+	РегистрНакопления.УЗ_Партии.Остатки(
+			,
+			ТоварКод В
+					(ВЫБРАТЬ
+						втТовары.Код
+					ИЗ
+						втТовары)
+				И СкладКод В
+					(ВЫБРАТЬ
+						втСклады.Код
+					ИЗ
+						втСклады)) КАК УЗ_ПартииОстатки
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втМатрицаБлок КАК втМатрицаБлок
+		ПО УЗ_ПартииОстатки.ТоварКод = втМатрицаБлок.Товар.Код
+			И УЗ_ПартииОстатки.СкладКод = втМатрицаБлок.Аптека.Код
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.УЗ_Партии КАК УЗ_Партии
+		ПО УЗ_ПартииОстатки.ПартияКод = УЗ_Партии.Код
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Реализации.Период,
+	СУММА(ВЫРАЗИТЬ(Реализации.КоличествоОборот / УЗ_Партии.К КАК ЧИСЛО(12, 2))) КАК КолвоПродаж
+ПОМЕСТИТЬ втПродажи
+ИЗ
+	РегистрНакопления.УЗ_РеализацииККМ.Обороты(
+			ДАТАВРЕМЯ(2016, 12, 1),
+			&amp;ТекДата,
+			День,
+			СкладКод В
+					(ВЫБРАТЬ
+						вт.Код
+					ИЗ
+						втСклады КАК вт)
+				И ТоварКод В
+					(ВЫБРАТЬ
+						вт.Код
+					ИЗ
+						втТовары КАК вт)) КАК Реализации
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.УЗ_Партии КАК УЗ_Партии
+		ПО Реализации.ПартияКод = УЗ_Партии.Код
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втМатрицаБлок КАК втМатрицаБлок
+		ПО Реализации.СкладКод = втМатрицаБлок.Аптека.Код
+			И Реализации.ТоварКод = втМатрицаБлок.Товар.Код
+
+СГРУППИРОВАТЬ ПО
+	Реализации.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втСклады
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втТовары
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втМатрицаБлок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫРАЗИТЬ(СУММА(втПродажи.КолвоПродаж) / 6 КАК ЧИСЛО(15, 2)) КАК КолвоПродаж
+ПОМЕСТИТЬ втПродажиДо
+ИЗ
+	втПродажи КАК втПродажи
+ГДЕ
+	втПродажи.Период &lt; ДАТАВРЕМЯ(2016, 12, 7)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПродажи.Период,
+	СУММА(втПродажи.КолвоПродаж) КАК КолвоПродаж
+ПОМЕСТИТЬ втПродажиПосле
+ИЗ
+	втПродажи КАК втПродажи
+ГДЕ
+	втПродажи.Период &gt;= ДАТАВРЕМЯ(2016, 12, 7)
+
+СГРУППИРОВАТЬ ПО
+	втПродажи.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(втПродажиПосле.КолвоПродаж) КАК КолвоПродаж
+ПОМЕСТИТЬ втПродажиПослеИтог
+ИЗ
+	втПродажиПосле КАК втПродажиПосле
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втПродажи
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПродажиПосле.Период,
+	МАКСИМУМ(втПродажиПосле.КолвоПродаж) КАК КолвоПродаж,
+	СУММА(втПродажиПосле1.КолвоПродаж) КАК КолвоПродажНакопленное
+ПОМЕСТИТЬ втПродажиНакопленные
+ИЗ
+	втПродажиПосле КАК втПродажиПосле
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втПродажиПосле КАК втПродажиПосле1
+		ПО втПродажиПосле.Период &gt;= втПродажиПосле1.Период
+
+СГРУППИРОВАТЬ ПО
+	втПродажиПосле.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ втПродажиПосле
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПродажиДо.КолвоПродаж КАК КолвоПродажСреднееДо,
+	втПродажиДо.КолвоПродаж КАК КолвоПродажЗаДеньБаза,
+	втОстатки.КолвоОстаток + втПродажиПослеИтог.КолвоПродаж КАК КолвоОстатокНаНачало,
+	втПродажиНакопленные.Период КАК Период,
+	втПродажиНакопленные.КолвоПродаж КАК КолвоПродаж,
+	втОстатки.КолвоОстаток + втПродажиПослеИтог.КолвоПродаж - втПродажиНакопленные.КолвоПродажНакопленное КАК КолвоОстаток
+ИЗ
+	втОстатки КАК втОстатки,
+	втПродажиДо КАК втПродажиДо,
+	втПродажиПослеИтог КАК втПродажиПослеИтог,
+	втПродажиНакопленные КАК втПродажиНакопленные</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КолвоПродаж</dataPath>
+		<expression>Сумма(КолвоПродаж)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КолвоОстаток</dataPath>
+		<expression>Сумма(КолвоОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КолвоПродажЗаДеньБаза</dataPath>
+		<expression>Максимум(КолвоПродажЗаДеньБаза)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тек дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ДобавитьКДате(КонецПериода(ТекущаяДата(), "День"), "День", -1)</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КолвоПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КолвоОстаток</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesPlacement">Vertically</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остатки и продажи сверхзапасов</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ФиксацияСлева</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionFixation">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Период</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КолвоОстатокНаНачало</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КолвоПродажСреднееДо</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КолвоОстатокНаНачало</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КолвоПродажСреднееДо</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Период</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КолвоПродаж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КолвоПродажЗаДеньБаза</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:ChartType">Line</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

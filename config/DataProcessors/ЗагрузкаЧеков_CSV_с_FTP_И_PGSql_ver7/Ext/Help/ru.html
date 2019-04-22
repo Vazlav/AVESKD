@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.19236"></meta></head><body><b><font color="#0064a5" size="2"><font color="#0064a5" size="2">
+<p>Структура входящих данных</p></font></font></b><font size="2" face="Tahoma"><font size="2" face="Tahoma">
+<p>STR - чек продажи/ возврата</p>
+<table cellspacing="1" cols="3" rules="none" border="1" frame="1"><colgroup><col width="90"></col><col width="255"></col><col width="116"></col></colgroup><tbody><tr><td height="18" width="90" align="left">НомерБлока</td>
+<td width="255" align="left"><br></td>
+<td width="116" align="left"><br></td></tr><tr><td bgcolor="#ffff00" height="17" align="right" sdval="1" sdnum="1049;">1</td>
+<td bgcolor="#ffff00" align="left">Шапка </td>
+<td bgcolor="#ffff00" align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код аптеки </td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Отметка проведения </td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="18" align="left"></td>
+<td align="left">№ ккм </td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left"></td>
+<td align="left">№ смены </td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td height="17" align="left"></td>
+<td align="left">
+<p>Дата время открытия смены</p></td>
+<td align="right" sdval="5" sdnum="1049;">5</td></tr><tr><td height="17" align="left"></td>
+<td align="left">№ документа </td>
+<td align="right" sdval="6" sdnum="1049;">6</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Дата время открытия чека</td>
+<td align="right" sdval="7" sdnum="1049;">7</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Дата время закрытия  чека</td>
+<td align="right" sdval="8" sdnum="1049;">8</td></tr><tr><td height="17" align="left"></td>
+<td align="left">№ чека</td>
+<td align="right" sdval="9" sdnum="1049;">9</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Тип чека (1- продажа, иначе возврат)</td>
+<td align="right" sdval="10" sdnum="1049;">10</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Подтип чека  (0-нал, 3-безнал)</td>
+<td align="right" sdval="11" sdnum="1049;">11</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма к оплате по БД </td>
+<td align="right" sdval="12" sdnum="1049;">12</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма к оплате по ККМ </td>
+<td align="right" sdval="13" sdnum="1049;">13</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Это чек из закрытой смены (1) , нет(0)</td>
+<td align="right" sdval="14" sdnum="1049;">14</td></tr><tr><td height="17" align="left"></td>
+<td align="left">код кассира </td>
+<td align="right" sdval="15" sdnum="1049;">15</td></tr><tr><td height="17" align="left"></td>
+<td align="left">ID смены </td>
+<td align="right" sdval="15" sdnum="1049;">16</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Отметка проведения документа (еще раз) </td>
+<td align="right" sdval="15" sdnum="1049;">17</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Признак удаления документа </td>
+<td align="right" sdval="15" sdnum="1049;">18</td></tr><tr><td bgcolor="#ffff00" height="17" align="right" sdval="2" sdnum="1049;">2</td>
+<td bgcolor="#ffff00" align="left">Товар </td>
+<td bgcolor="#ffff00" align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код партии 1С </td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код товара </td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Коэффициент разбора </td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Коэффициент сбора </td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Количество </td>
+<td align="right" sdval="5" sdnum="1049;">5</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма розницы с НДС (учетная)</td>
+<td align="right" sdval="6" sdnum="1049;">6</td></tr><tr><td height="17" align="left"></td>
+<td align="left">
+<p>Сумма НДС розницы  (учетная)</p></td>
+<td align="right" sdval="7" sdnum="1049;">7</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма скидки </td>
+<td align="right" sdval="8" sdnum="1049;">8</td></tr><tr><td height="17" align="left"></td>
+<td align="left">
+<p>Сумма к оплате с НДС (с учетом скидки)</p></td>
+<td align="right" sdval="9" sdnum="1049;">9</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма НДС оплаты  (с уч. ск.)</td>
+<td align="right" sdval="10" sdnum="1049;">10</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма закупочная с НДС </td>
+<td align="right" sdval="11" sdnum="1049;">11</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма НДС закупки </td>
+<td align="right" sdval="12" sdnum="1049;">12</td></tr><tr><td height="17" align="left"></td>
+<td align="left">
+<p>Ставка НДС</p></td>
+<td align="right" sdval="13" sdnum="1049;">13</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Другая ставка НДС</td>
+<td align="right" sdval="14" sdnum="1049;">14</td></tr><tr><td bgcolor="#ffff00" height="17" align="right" sdval="3" sdnum="1049;">3</td>
+<td bgcolor="#ffff00" align="left">Услуги </td>
+<td bgcolor="#ffff00" align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код услуги </td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Количество </td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма розницы с НДС </td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма НДС розницы </td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма скидки </td>
+<td align="right" sdval="5" sdnum="1049;">5</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма к оплате с НДС </td>
+<td align="right" sdval="6" sdnum="1049;">6</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма НДС оплаты </td>
+<td align="right" sdval="7" sdnum="1049;">7</td></tr><tr><td bgcolor="#ffff00" height="17" align="right" sdval="3" sdnum="1049;">4</td>
+<td bgcolor="#ffff00" align="left">Зачет авансов</td>
+<td bgcolor="#ffff00" align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left"></td>
+<td align="left">ИД аванса</td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left"></td>
+<td align="left">
+<p>ставка ндс</p></td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма Зачета аванса</td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Сумма НДС зачета аванса</td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td bgcolor="#ffff00" height="17" align="right" sdval="5" sdnum="1049;">5</td>
+<td bgcolor="#ffff00" align="left">Дисконтные карты </td>
+<td bgcolor="#ffff00" align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код карты </td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left"></td>
+<td align="left">Код типа карты </td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="18" align="left"></td>
+<td align="left">Штрихкод</td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left"></td>
+<td align="left">% скидки </td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr class="R0"><td bgcolor="#ffff00"><span style="WHITE-SPACE: nowrap"><font style="BACKGROUND-COLOR: #ffff00">6</font></span></td>
+<td bgcolor="#ffff00"><span style="WHITE-SPACE: nowrap"><font style="BACKGROUND-COLOR: #ffff00">Маркетинг</font></span></td>
+<td bgcolor="#ffff00" colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap"><font style="BACKGROUND-COLOR: #ffff00">0</font></span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Код партии</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">1</span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Код товара</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">2</span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Номер док. Акции</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">3</span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Дата док. Акции</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">4</span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Вариант предост скидки</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">5</span></p></td></tr><tr class="R0"><td><span></span></td>
+<td><span style="WHITE-SPACE: nowrap">Скидка, кот д.б.б. По акции</span></td>
+<td colspan="2">
+<p align="right"><span style="WHITE-SPACE: nowrap">6</span></p></td></tr></tbody></table><p> </p>
+<p>//=================================================================================</p>
+<p>ADV - получение/возврат авансов</p>
+<p></p>
+<table style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; VERTICAL-ALIGN: bottom; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 2px; PADDING-RIGHT: 0px" cellspacing="0"><tbody style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; BACKGROUND: #ffffff; FONT-STYLE: normal; MARGIN: 0px"><tr style="DISPLAY: none"><td width="35"></td>
+<td width="37"></td>
+<td width="237"></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap"> ''1''   </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f1  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Шапка</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f2  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Код аптеки</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f3  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Отметка проведения</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f4  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- № ккм</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f5  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- № смены</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f6  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Дата открытия смены</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f7  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- № документа</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f8  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Дата/время открытия</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f9  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Дата/время закрытия</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f10  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- № чека </span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f11  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Тип чека (9-получение, 10-возврат)</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f12  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid">
+<p><span style="WHITE-SPACE: nowrap">  -- Подтип чека (0-нал, 3-безнал)</span></p>
+<p><span style="WHITE-SPACE: nowrap"></span> </p></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f13  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Сумма к оплате по БД</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f14</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Сумма к оплате по ККМ</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f15  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Отметка проведения смены</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f16  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Табельный сотрудника</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f17  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- ID аванса</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f18  </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  -- Вид аванса (1 - предоплата за инд заказ)</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span></span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">  f19 </span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid"><span style="WHITE-SPACE: nowrap">-- Доп информация по выдаче</span></td>
+<td></td></tr></tbody></table></font></font><font size="2" face="Tahoma"><font size="2" face="Tahoma">
+<p></p>
+<p></p>
+<p>//=================================================================================</p>
+<p>HDR  - закрытие смены</p>
+<table cellspacing="1" cols="6" rules="none" border="1" frame="2"><colgroup><col width="20"></col><col width="26"></col><col width="315"></col><col width="207"></col><col width="220"></col><col width="177"></col></colgroup><tbody><tr><td height="18" width="20" align="left">//</td>
+<td width="26" align="right" sdval="0" sdnum="1049;">0</td>
+<td width="315" align="left">is_correct</td>
+<td width="207" align="left">----</td>
+<td width="220" align="left">Признак корректности</td>
+<td width="177" align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="1" sdnum="1049;">1</td>
+<td align="left">CASE WHEN is_posting THEN 1 ELSE 0 END</td>
+<td align="left">----</td>
+<td align="left">Отметка проведения</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="2" sdnum="1049;">2</td>
+<td align="left">ndoc</td>
+<td align="left">----</td>
+<td align="left">Номер документа в аптеке</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="3" sdnum="1049;">3</td>
+<td align="left">to_char(ddoc ''YYYYMMDDHH24MISS''::text)</td>
+<td align="left">----</td>
+<td align="left">Дата/время начала смены</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="4" sdnum="1049;">4</td>
+<td align="left">id_dep[1]</td>
+<td align="left">----</td>
+<td align="left">Код аптеки</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="5" sdnum="1049;">5</td>
+<td align="left">id_model</td>
+<td align="left">----</td>
+<td align="left">Модель ККМ</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="6" sdnum="1049;">6</td>
+<td align="left">posnum</td>
+<td align="left">----</td>
+<td align="left">№ ккм</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="7" sdnum="1049;">7</td>
+<td align="left">shiftnum</td>
+<td align="left">----</td>
+<td align="left">№ смены</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="8" sdnum="1049;">8</td>
+<td align="left">nopen</td>
+<td align="left">----</td>
+<td align="left">№ документа</td>
+<td align="left">открывашки</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="9" sdnum="1049;">9</td>
+<td align="left">nclose</td>
+<td align="left">----</td>
+<td align="left">№ документа</td>
+<td align="left">закрывашки</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="10" sdnum="1049;">10</td>
+<td align="left">sale_count</td>
+<td align="left">----</td>
+<td align="left">Колво продаж по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="11" sdnum="1049;">11</td>
+<td align="left">return_count</td>
+<td align="left">----</td>
+<td align="left">Колво возвратов по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="12" sdnum="1049;">12</td>
+<td align="left">income_count</td>
+<td align="left">----</td>
+<td align="left">Колво внесений по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="13" sdnum="1049;">13</td>
+<td align="left">outcome_count</td>
+<td align="left">----</td>
+<td align="left">Колво выплат по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="14" sdnum="1049;">14</td>
+<td align="left">sum_sale_0</td>
+<td align="left">----</td>
+<td align="left">Продаж нал по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="15" sdnum="1049;">15</td>
+<td align="left">sum_sale_3</td>
+<td align="left">----</td>
+<td align="left">Продаж безнал по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="16" sdnum="1049;">16</td>
+<td align="left">sum_return_0</td>
+<td align="left">----</td>
+<td align="left">Возвратов нал по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="17" sdnum="1049;">17</td>
+<td align="left">sum_return_3</td>
+<td align="left">----</td>
+<td align="left">Возвратов безнал по БД</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="18" sdnum="1049;">18</td>
+<td align="left">sum_income </td>
+<td align="left">----</td>
+<td align="left">Внесений</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="19" sdnum="1049;">19</td>
+<td align="left">sum_outcome</td>
+<td align="left">----</td>
+<td align="left">Выплат</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="20" sdnum="1049;">20</td>
+<td align="left">CASE WHEN eklz_overflow THEN 1 ELSE 0 END</td>
+<td align="left">----</td>
+<td align="left">Капец ЭКЛЗ</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="21" sdnum="1049;">21</td>
+<td align="left">ecr_sale_0</td>
+<td align="left">----</td>
+<td align="left">Продаж нал по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="22" sdnum="1049;">22</td>
+<td align="left">ecr_sale_3</td>
+<td align="left">----</td>
+<td align="left">Продаж безнал по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="23" sdnum="1049;">23</td>
+<td align="left">ecr_return_0</td>
+<td align="left">----</td>
+<td align="left">Возвратов нал по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="24" sdnum="1049;">24</td>
+<td align="left">ecr_return_3</td>
+<td align="left">----</td>
+<td align="left">Возвратов безнал по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="25" sdnum="1049;">25</td>
+<td align="left">ecr_income</td>
+<td align="left">----</td>
+<td align="left">Внесений</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="26" sdnum="1049;">26</td>
+<td align="left">ecr_outcome</td>
+<td align="left">----</td>
+<td align="left">Выплат</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="27" sdnum="1049;">27</td>
+<td align="left">ecr_summary</td>
+<td align="left">----</td>
+<td align="left">Выручка итого по счетчику ККМ</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="28" sdnum="1049;">28</td>
+<td align="left">ecr_bzero</td>
+<td align="left">----</td>
+<td align="left">Необнуляемая на начало смены</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="29" sdnum="1049;">29</td>
+<td align="left">ecr_ezero</td>
+<td align="left">----</td>
+<td align="left">Необнуляемая на конец смены</td>
+<td align="left"></td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="30" sdnum="1049;">30</td>
+<td align="left">ecr_sale_count</td>
+<td align="left">----</td>
+<td align="left">Колво продаж по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="31" sdnum="1049;">31</td>
+<td align="left">ecr_return_count</td>
+<td align="left">----</td>
+<td align="left">Колво возвратов по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="32" sdnum="1049;">32</td>
+<td align="left">ecr_income_count</td>
+<td align="left">----</td>
+<td align="left">Колво внесений по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr><tr><td height="18" align="left">//</td>
+<td align="right" sdval="33" sdnum="1049;">33</td>
+<td align="left">ecr_outcome_count</td>
+<td align="left">----</td>
+<td align="left">Колво выплат по БД</td>
+<td align="left">только по счетчикам ККМ</td></tr></tbody></table><p> </p>
+<p>//=================================================================================</p>
+<p>SYS - системные чеки</p>
+<p></p>
+<table bordercolor="#594304" cellspacing="1" cols="3" cellpadding="1" rules="none" border="1" frame="true"><colgroup><col width="124"></col><col width="164"></col><col width="86"></col></colgroup><tbody><tr><td bordercolor="#594304" width="124" align="left">Номер блока</td>
+<td width="164" align="left">описание</td>
+<td width="86" align="left">индекс поля</td></tr><tr><td align="right" sdval="1" sdnum="1049;">1</td>
+<td align="left">шапка</td>
+<td align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td align="left"></td>
+<td align="left">Код аптеки</td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td align="left"></td>
+<td align="left">Отметка проведения</td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="18" align="left"></td>
+<td align="left">№ ккм</td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td align="left"></td>
+<td align="left">№ смены</td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td align="left"></td>
+<td align="left">Дата открытия смены</td>
+<td align="right" sdval="5" sdnum="1049;">5</td></tr><tr><td align="left"></td>
+<td align="left">№ документа</td>
+<td align="right" sdval="6" sdnum="1049;">6</td></tr><tr><td align="left"></td>
+<td align="left">Дата/время открытия</td>
+<td align="right" sdval="7" sdnum="1049;">7</td></tr><tr><td align="left"></td>
+<td align="left">Дата/время закрытия</td>
+<td align="right" sdval="8" sdnum="1049;">8</td></tr><tr><td align="left"></td>
+<td align="left">№ чека</td>
+<td align="right" sdval="9" sdnum="1049;">9</td></tr><tr><td align="left"></td>
+<td align="left">Тип чека</td>
+<td align="right" sdval="10" sdnum="1049;">10</td></tr><tr><td align="left"></td>
+<td align="left">Подтип чека</td>
+<td align="right" sdval="11" sdnum="1049;">11</td></tr><tr><td align="left"></td>
+<td align="left">Сумма к оплате по БД</td>
+<td align="right" sdval="12" sdnum="1049;">12</td></tr><tr><td align="left"></td>
+<td align="left">Сумма к оплате по ККМ</td>
+<td align="right" sdval="13" sdnum="1049;">13</td></tr><tr><td align="left"></td>
+<td align="left">ИД Смены</td>
+<td align="right" sdval="13" sdnum="1049;">14</td></tr><tr><td align="left"></td>
+<td align="left">Номер чека открывшего смену</td>
+<td align="right" sdval="13" sdnum="1049;">15</td></tr></tbody></table><p></p>
+<table cellspacing="0" cols="2" rules="none" border="0" frame="void"><colgroup><col width="140"></col><col width="47"></col></colgroup><tbody><tr><td height="17" width="187" colspan="2" align="left">ТИП ЧЕКА</td></tr><tr><td height="18" align="left">dsc</td>
+<td align="left">value</td></tr><tr><td height="17" align="left">Технологический</td>
+<td align="right" sdval="0" sdnum="1049;">0</td></tr><tr><td height="17" align="left">Продажа</td>
+<td align="right" sdval="1" sdnum="1049;">1</td></tr><tr><td height="17" align="left">Возврат</td>
+<td align="right" sdval="2" sdnum="1049;">2</td></tr><tr><td height="17" align="left">Внесение</td>
+<td align="right" sdval="3" sdnum="1049;">3</td></tr><tr><td height="17" align="left">Выплата</td>
+<td align="right" sdval="4" sdnum="1049;">4</td></tr><tr><td height="18" align="left">X-отчет</td>
+<td align="right" sdval="5" sdnum="1049;">5</td></tr><tr><td height="17" align="left">Отчет по cекциям</td>
+<td align="right" sdval="6" sdnum="1049;">6</td></tr><tr><td height="18" align="left">Z-отчет</td>
+<td align="right" sdval="7" sdnum="1049;">7</td></tr><tr><td height="17" align="left">Итоги активизации</td>
+<td align="right" sdval="8" sdnum="1049;">8</td></tr><tr><td height="17" align="left">Аванс</td>
+<td align="right" sdval="9" sdnum="1049;">9</td></tr><tr><td height="17" align="left">Возврат аванса</td>
+<td align="right" sdval="10" sdnum="1049;">10</td></tr></tbody></table><p> </p></font></font></body></html>

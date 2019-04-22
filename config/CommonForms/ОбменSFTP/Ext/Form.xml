@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Width>50</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<ChildrenAlign>ItemsLeftTitlesLeft</ChildrenAlign>
+	<VerticalSpacing>Double</VerticalSpacing>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<CheckBoxField name="Операция" id="16">
+			<DataPath>ЭтоЗагрузка</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Операция</v8:content>
+				</v8:item>
+			</Title>
+			<CheckBoxType>Tumbler</CheckBoxType>
+			<EditFormat>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Л=ru_RU; БЛ=Выгрузка; БИ=Загрузка</v8:content>
+				</v8:item>
+			</EditFormat>
+			<ContextMenu name="ОперацияКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="18"/>
+		</CheckBoxField>
+		<InputField name="Сервер" id="1">
+			<DataPath>НастройкаАвторизации.Owner</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<SkipOnInput>true</SkipOnInput>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервер</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="СерверКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="СерверРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="НастройкиСервера" id="4">
+			<DataPath>НастройкаАвторизации</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="НастройкиСервераКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НастройкиСервераРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="КаталогЛокальный" id="7">
+			<DataPath>КаталогЛокальный</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="КаталогЛокальныйКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КаталогЛокальныйРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="КаталогУдаленный" id="10">
+			<DataPath>КаталогУдаленный</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="КаталогУдаленныйКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="КаталогУдаленныйРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="ИмяФайла" id="13">
+			<DataPath>ИмяФайла</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ИмяФайлаКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ИмяФайлаРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<TextDocumentField name="Команда" id="19">
+			<DataPath>Команда</DataPath>
+			<ContextMenu name="КомандаКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="КомандаРасширеннаяПодсказка" id="21"/>
+		</TextDocumentField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЭтоЗагрузка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это загрузка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КаталогЛокальный" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Каталог локальный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаАвторизации" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка авторизации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АвторизацияSFTP</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КаталогУдаленный" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Каталог удаленный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяФайла" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя файла</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Команда" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+			<FunctionalOptions>
+				<Item>04b8534e-4dac-4bf7-9438-770cab346e54</Item>
+			</FunctionalOptions>
+		</Attribute>
+	</Attributes>
+</Form>

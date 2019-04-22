@@ -1,0 +1,3799 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://smsdelivery.ru/"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://smsdelivery.ru/"
+		targetNamespace="http://smsdelivery.ru/">
+	<types>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				elementFormDefault="qualified"
+				targetNamespace="http://smsdelivery.ru/">
+			<s:element name="GetRoubleBalance">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoubleBalanceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetRoubleBalanceResult"
+								type="xsd1:GetUserRoubleBalanceResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetUserRoubleBalanceResponse">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="RoubleBalance"
+							type="s:decimal"/>
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="ValidateEnum">
+				<s:restriction base="s:string">
+					<s:enumeration value="OK"/>
+					<s:enumeration value="InvalidCredentials"/>
+					<s:enumeration value="UserDisabled"/>
+					<s:enumeration value="InvalidFlashMessage"/>
+					<s:enumeration value="InvalidSenderAddress"/>
+					<s:enumeration value="InvalidReceiverAddress"/>
+					<s:enumeration value="EmptyMessage"/>
+					<s:enumeration value="TooLongMessage"/>
+					<s:enumeration value="MessageBlocked"/>
+					<s:enumeration value="InvalidBalance"/>
+					<s:enumeration value="DatabaseOffline"/>
+					<s:enumeration value="Unknown"/>
+					<s:enumeration value="Error"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetBalance">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetBalanceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetBalanceResult"
+								type="xsd1:GetUserBalanceResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetUserBalanceResponse">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Balance"
+							type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetTariff">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetTariffResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetTariffResult"
+								type="xsd1:GetUserTariffResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetUserTariffResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="SegmentPrice"
+							type="s:decimal"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetTariffs">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetTariffsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetTariffsResult"
+								type="xsd1:GetUserTariffsResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetUserTariffsResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="SegmentPrice"
+							type="s:decimal"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Specifications"
+							type="xsd1:ArrayOfTariffSpecification"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfTariffSpecification">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="unbounded"
+							name="TariffSpecification"
+							nillable="true"
+							type="xsd1:TariffSpecification"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TariffSpecification">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MobileOperator"
+							type="s:string"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="SegmentPrice"
+							type="s:decimal"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetRoubleMessagesPrice">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumbers"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetRoubleMessagesPriceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetRoubleMessagesPriceResult"
+								type="xsd1:GetRoubleMessagesPriceResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetRoubleMessagesPriceResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessagesPrice"
+							type="s:decimal"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SendRoubleScheduledMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="scheduledResendTime"
+								type="s:dateTime"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendRoubleScheduledMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendRoubleScheduledMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="MessageResponse">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageID"
+							type="s:int"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="SegmentsNumber"
+							type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SendScheduledMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="scheduledResendTime"
+								type="s:dateTime"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendScheduledMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendScheduledMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendWebScheduledMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="scheduledResendTime"
+								type="s:dateTime"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendWebScheduledMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendWebScheduledMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendRoubleMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendRoubleMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendRoubleMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendWebMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="isFlash"
+								type="s:boolean"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="lifeTime"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="destNumber"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="senderAddr"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="text"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SendWebMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="SendWebMessageResult"
+								type="xsd1:MessageResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMessageStatus">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="messageID"
+								type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMessageStatusResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetMessageStatusResult"
+								type="xsd1:GetStatusResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetStatusResponse">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageStatus"
+							type="xsd1:StatusEnum"/>
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="StatusEnum">
+				<s:restriction base="s:string">
+					<s:enumeration value="EnQueue"/>
+					<s:enumeration value="EnRoute"/>
+					<s:enumeration value="Delivered"/>
+					<s:enumeration value="Deleted"/>
+					<s:enumeration value="Expired"/>
+					<s:enumeration value="Rejected"/>
+					<s:enumeration value="UnDeliverable"/>
+					<s:enumeration value="Unknown"/>
+					<s:enumeration value="Error"/>
+					<s:enumeration value="Blocked"/>
+					<s:enumeration value="Canceled"/>
+					<s:enumeration value="Max"/>
+					<s:enumeration value="Other"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetMessageStatus2">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="messageID"
+								type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMessageStatus2Response">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetMessageStatus2Result"
+								type="xsd1:GetStatus2Response"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetStatus2Response">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageStatus"
+							type="xsd1:StatusEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageDeliveryTime"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageDeliveryErrorCode"
+							nillable="true"
+							type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetWebMessageStatus2">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="messageID"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWebMessageStatus2Response">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetWebMessageStatus2Result"
+								type="xsd1:GetStatus2Response"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMessageStatusAndSenderAddress">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="messageID"
+								type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMessageStatusAndSenderAddressResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetMessageStatusAndSenderAddressResult"
+								type="xsd1:GetStatusAndSenderAddressResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetStatusAndSenderAddressResponse">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:ValidateEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageStatus"
+							type="xsd1:StatusEnum"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageDeliveryTime"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="MessageDeliveryErrorCode"
+							nillable="true"
+							type="s:int"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MessageAddress"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetWebMessageStatusAndSenderAddress">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="messageID"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWebMessageStatusAndSenderAddressResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetWebMessageStatusAndSenderAddressResult"
+								type="xsd1:GetStatusAndSenderAddressResponse"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSenderAddresses">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSenderAddressesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetSenderAddressesResult"
+								type="xsd1:GetSenderAddressesResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetSenderAddressesResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:SenderAddressResultEnum"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Addresses"
+							type="xsd1:ArrayOfString"/>
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="SenderAddressResultEnum">
+				<s:restriction base="s:string">
+					<s:enumeration value="OK"/>
+					<s:enumeration value="InvalidCredentials"/>
+					<s:enumeration value="UserDisabled"/>
+					<s:enumeration value="DuplicateSenderAddress"/>
+					<s:enumeration value="WrongSenderAddress"/>
+					<s:enumeration value="DatabaseOffline"/>
+					<s:enumeration value="Unknown"/>
+					<s:enumeration value="Error"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:complexType name="ArrayOfString">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="unbounded"
+							name="string"
+							nillable="true"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetWebSenderAddresses">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWebSenderAddressesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetWebSenderAddressesResult"
+								type="xsd1:GetSenderAddressesResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddSenderAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddSenderAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddSenderAddressWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AddSenderAddressWithModerationResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:SenderAddressResultEnum"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AddSenderAddressForMobileOperatorWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="mobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="addressForMobileOperator"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddSenderAddressForMobileOperatorWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddSenderAddressForMobileOperatorWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebSenderAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebSenderAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddWebSenderAddressWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebSenderAddressForMobileOperatorWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="mobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="addressForMobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebSenderAddressForMobileOperatorWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddWebSenderAddressForMobileOperatorWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUniqueSenderAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUniqueSenderAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddUniqueSenderAddressWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="mobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="addressForMobileOperator"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUniqueSenderAddressForMobileOperatorWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddUniqueSenderAddressForMobileOperatorWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebUniqueSenderAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebUniqueSenderAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddWebUniqueSenderAddressWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="address"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="mobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="addressForMobileOperator"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebUniqueSenderAddressForMobileOperatorWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddWebUniqueSenderAddressForMobileOperatorWithModerationResult"
+								type="xsd1:AddSenderAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSenderEmailAddresses">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSenderEmailAddressesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetSenderEmailAddressesResult"
+								type="xsd1:GetSenderEmailAddressesResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="GetSenderEmailAddressesResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:SenderEmailAddressResultEnum"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="EmailAddresses"
+							type="xsd1:ArrayOfString"/>
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="SenderEmailAddressResultEnum">
+				<s:restriction base="s:string">
+					<s:enumeration value="OK"/>
+					<s:enumeration value="InvalidCredentials"/>
+					<s:enumeration value="UserDisabled"/>
+					<s:enumeration value="DuplicateSenderEmailAddress"/>
+					<s:enumeration value="WrongSenderEmailAddress"/>
+					<s:enumeration value="DatabaseOffline"/>
+					<s:enumeration value="Unknown"/>
+					<s:enumeration value="Error"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetWebSenderEmailAddresses">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetWebSenderEmailAddressesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetWebSenderEmailAddressesResult"
+								type="xsd1:GetSenderEmailAddressesResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddSenderEmailAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="emailAddress"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddSenderEmailAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddSenderEmailAddressWithModerationResult"
+								type="xsd1:AddSenderEmailAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AddSenderEmailAddressWithModerationResp">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="Result"
+							type="xsd1:SenderEmailAddressResultEnum"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AddWebSenderEmailAddressWithModeration">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="userName"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="emailAddress"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="signature"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddWebSenderEmailAddressWithModerationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddWebSenderEmailAddressWithModerationResult"
+								type="xsd1:AddSenderEmailAddressWithModerationResp"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetUserRoubleBalanceResponse"
+					nillable="true"
+					type="xsd1:GetUserRoubleBalanceResponse"/>
+			<s:element name="GetUserBalanceResponse"
+					nillable="true"
+					type="xsd1:GetUserBalanceResponse"/>
+			<s:element name="GetUserTariffResp"
+					nillable="true"
+					type="xsd1:GetUserTariffResp"/>
+			<s:element name="GetUserTariffsResp"
+					nillable="true"
+					type="xsd1:GetUserTariffsResp"/>
+			<s:element name="GetRoubleMessagesPriceResp"
+					nillable="true"
+					type="xsd1:GetRoubleMessagesPriceResp"/>
+			<s:element name="MessageResponse"
+					nillable="true"
+					type="xsd1:MessageResponse"/>
+			<s:element name="GetStatusResponse"
+					nillable="true"
+					type="xsd1:GetStatusResponse"/>
+			<s:element name="GetStatus2Response"
+					nillable="true"
+					type="xsd1:GetStatus2Response"/>
+			<s:element name="GetStatusAndSenderAddressResponse"
+					nillable="true"
+					type="xsd1:GetStatusAndSenderAddressResponse"/>
+			<s:element name="GetSenderAddressesResp"
+					nillable="true"
+					type="xsd1:GetSenderAddressesResp"/>
+			<s:element name="AddSenderAddressWithModerationResp"
+					nillable="true"
+					type="xsd1:AddSenderAddressWithModerationResp"/>
+			<s:element name="GetSenderEmailAddressesResp"
+					nillable="true"
+					type="xsd1:GetSenderEmailAddressesResp"/>
+			<s:element name="AddSenderEmailAddressWithModerationResp"
+					nillable="true"
+					type="xsd1:AddSenderEmailAddressWithModerationResp"/>
+		</s:schema>
+	</types>
+	<message name="GetRoubleBalanceSoapIn">
+		<part name="parameters"
+				element="tns:GetRoubleBalance"/>
+	</message>
+	<message name="GetRoubleBalanceSoapOut">
+		<part name="parameters"
+				element="tns:GetRoubleBalanceResponse"/>
+	</message>
+	<message name="GetBalanceSoapIn">
+		<part name="parameters"
+				element="tns:GetBalance"/>
+	</message>
+	<message name="GetBalanceSoapOut">
+		<part name="parameters"
+				element="tns:GetBalanceResponse"/>
+	</message>
+	<message name="GetTariffSoapIn">
+		<part name="parameters"
+				element="tns:GetTariff"/>
+	</message>
+	<message name="GetTariffSoapOut">
+		<part name="parameters"
+				element="tns:GetTariffResponse"/>
+	</message>
+	<message name="GetTariffsSoapIn">
+		<part name="parameters"
+				element="tns:GetTariffs"/>
+	</message>
+	<message name="GetTariffsSoapOut">
+		<part name="parameters"
+				element="tns:GetTariffsResponse"/>
+	</message>
+	<message name="GetRoubleMessagesPriceSoapIn">
+		<part name="parameters"
+				element="tns:GetRoubleMessagesPrice"/>
+	</message>
+	<message name="GetRoubleMessagesPriceSoapOut">
+		<part name="parameters"
+				element="tns:GetRoubleMessagesPriceResponse"/>
+	</message>
+	<message name="SendRoubleScheduledMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendRoubleScheduledMessage"/>
+	</message>
+	<message name="SendRoubleScheduledMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendRoubleScheduledMessageResponse"/>
+	</message>
+	<message name="SendScheduledMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendScheduledMessage"/>
+	</message>
+	<message name="SendScheduledMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendScheduledMessageResponse"/>
+	</message>
+	<message name="SendWebScheduledMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendWebScheduledMessage"/>
+	</message>
+	<message name="SendWebScheduledMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendWebScheduledMessageResponse"/>
+	</message>
+	<message name="SendRoubleMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendRoubleMessage"/>
+	</message>
+	<message name="SendRoubleMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendRoubleMessageResponse"/>
+	</message>
+	<message name="SendMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendMessage"/>
+	</message>
+	<message name="SendMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendMessageResponse"/>
+	</message>
+	<message name="SendWebMessageSoapIn">
+		<part name="parameters"
+				element="tns:SendWebMessage"/>
+	</message>
+	<message name="SendWebMessageSoapOut">
+		<part name="parameters"
+				element="tns:SendWebMessageResponse"/>
+	</message>
+	<message name="GetMessageStatusSoapIn">
+		<part name="parameters"
+				element="tns:GetMessageStatus"/>
+	</message>
+	<message name="GetMessageStatusSoapOut">
+		<part name="parameters"
+				element="tns:GetMessageStatusResponse"/>
+	</message>
+	<message name="GetMessageStatus2SoapIn">
+		<part name="parameters"
+				element="tns:GetMessageStatus2"/>
+	</message>
+	<message name="GetMessageStatus2SoapOut">
+		<part name="parameters"
+				element="tns:GetMessageStatus2Response"/>
+	</message>
+	<message name="GetWebMessageStatus2SoapIn">
+		<part name="parameters"
+				element="tns:GetWebMessageStatus2"/>
+	</message>
+	<message name="GetWebMessageStatus2SoapOut">
+		<part name="parameters"
+				element="tns:GetWebMessageStatus2Response"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressSoapIn">
+		<part name="parameters"
+				element="tns:GetMessageStatusAndSenderAddress"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressSoapOut">
+		<part name="parameters"
+				element="tns:GetMessageStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressSoapIn">
+		<part name="parameters"
+				element="tns:GetWebMessageStatusAndSenderAddress"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressSoapOut">
+		<part name="parameters"
+				element="tns:GetWebMessageStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetSenderAddressesSoapIn">
+		<part name="parameters"
+				element="tns:GetSenderAddresses"/>
+	</message>
+	<message name="GetSenderAddressesSoapOut">
+		<part name="parameters"
+				element="tns:GetSenderAddressesResponse"/>
+	</message>
+	<message name="GetWebSenderAddressesSoapIn">
+		<part name="parameters"
+				element="tns:GetWebSenderAddresses"/>
+	</message>
+	<message name="GetWebSenderAddressesSoapOut">
+		<part name="parameters"
+				element="tns:GetWebSenderAddressesResponse"/>
+	</message>
+	<message name="AddSenderAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddSenderAddressWithModeration"/>
+	</message>
+	<message name="AddSenderAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddSenderAddressWithModerationResponse"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddSenderAddressForMobileOperatorWithModeration"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddSenderAddressForMobileOperatorWithModerationResponse"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddWebSenderAddressWithModeration"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddWebSenderAddressWithModerationResponse"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddWebSenderAddressForMobileOperatorWithModeration"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddWebSenderAddressForMobileOperatorWithModerationResponse"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddUniqueSenderAddressWithModeration"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddUniqueSenderAddressWithModerationResponse"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddUniqueSenderAddressForMobileOperatorWithModeration"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddUniqueSenderAddressForMobileOperatorWithModerationResponse"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddWebUniqueSenderAddressWithModeration"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddWebUniqueSenderAddressWithModerationResponse"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddWebUniqueSenderAddressForMobileOperatorWithModeration"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationResponse"/>
+	</message>
+	<message name="GetSenderEmailAddressesSoapIn">
+		<part name="parameters"
+				element="tns:GetSenderEmailAddresses"/>
+	</message>
+	<message name="GetSenderEmailAddressesSoapOut">
+		<part name="parameters"
+				element="tns:GetSenderEmailAddressesResponse"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesSoapIn">
+		<part name="parameters"
+				element="tns:GetWebSenderEmailAddresses"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesSoapOut">
+		<part name="parameters"
+				element="tns:GetWebSenderEmailAddressesResponse"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddSenderEmailAddressWithModeration"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddSenderEmailAddressWithModerationResponse"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationSoapIn">
+		<part name="parameters"
+				element="tns:AddWebSenderEmailAddressWithModeration"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationSoapOut">
+		<part name="parameters"
+				element="tns:AddWebSenderEmailAddressWithModerationResponse"/>
+	</message>
+	<message name="GetRoubleBalanceHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetRoubleBalanceHttpGetOut">
+		<part name="Body"
+				element="tns:GetUserRoubleBalanceResponse"/>
+	</message>
+	<message name="GetBalanceHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetBalanceHttpGetOut">
+		<part name="Body"
+				element="tns:GetUserBalanceResponse"/>
+	</message>
+	<message name="GetTariffHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetTariffHttpGetOut">
+		<part name="Body"
+				element="tns:GetUserTariffResp"/>
+	</message>
+	<message name="GetTariffsHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetTariffsHttpGetOut">
+		<part name="Body"
+				element="tns:GetUserTariffsResp"/>
+	</message>
+	<message name="GetRoubleMessagesPriceHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="destNumbers"
+				type="xsd:string"/>
+	</message>
+	<message name="GetRoubleMessagesPriceHttpGetOut">
+		<part name="Body"
+				element="tns:GetRoubleMessagesPriceResp"/>
+	</message>
+	<message name="SendRoubleScheduledMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendRoubleScheduledMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendScheduledMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendScheduledMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendWebScheduledMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="SendWebScheduledMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendRoubleMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendRoubleMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendWebMessageHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="SendWebMessageHttpGetOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="GetMessageStatusHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatusHttpGetOut">
+		<part name="Body"
+				element="tns:GetStatusResponse"/>
+	</message>
+	<message name="GetMessageStatus2HttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatus2HttpGetOut">
+		<part name="Body"
+				element="tns:GetStatus2Response"/>
+	</message>
+	<message name="GetWebMessageStatus2HttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebMessageStatus2HttpGetOut">
+		<part name="Body"
+				element="tns:GetStatus2Response"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressHttpGetOut">
+		<part name="Body"
+				element="tns:GetStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressHttpGetOut">
+		<part name="Body"
+				element="tns:GetStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetSenderAddressesHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetSenderAddressesHttpGetOut">
+		<part name="Body"
+				element="tns:GetSenderAddressesResp"/>
+	</message>
+	<message name="GetWebSenderAddressesHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebSenderAddressesHttpGetOut">
+		<part name="Body"
+				element="tns:GetSenderAddressesResp"/>
+	</message>
+	<message name="AddSenderAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="GetSenderEmailAddressesHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetSenderEmailAddressesHttpGetOut">
+		<part name="Body"
+				element="tns:GetSenderEmailAddressesResp"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesHttpGetOut">
+		<part name="Body"
+				element="tns:GetSenderEmailAddressesResp"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="emailAddress"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderEmailAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationHttpGetIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="emailAddress"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationHttpGetOut">
+		<part name="Body"
+				element="tns:AddSenderEmailAddressWithModerationResp"/>
+	</message>
+	<message name="GetRoubleBalanceHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetRoubleBalanceHttpPostOut">
+		<part name="Body"
+				element="tns:GetUserRoubleBalanceResponse"/>
+	</message>
+	<message name="GetBalanceHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetBalanceHttpPostOut">
+		<part name="Body"
+				element="tns:GetUserBalanceResponse"/>
+	</message>
+	<message name="GetTariffHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetTariffHttpPostOut">
+		<part name="Body"
+				element="tns:GetUserTariffResp"/>
+	</message>
+	<message name="GetTariffsHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetTariffsHttpPostOut">
+		<part name="Body"
+				element="tns:GetUserTariffsResp"/>
+	</message>
+	<message name="GetRoubleMessagesPriceHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="destNumbers"
+				type="xsd:string"/>
+	</message>
+	<message name="GetRoubleMessagesPriceHttpPostOut">
+		<part name="Body"
+				element="tns:GetRoubleMessagesPriceResp"/>
+	</message>
+	<message name="SendRoubleScheduledMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendRoubleScheduledMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendScheduledMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendScheduledMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendWebScheduledMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="scheduledResendTime"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="SendWebScheduledMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendRoubleMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendRoubleMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+	</message>
+	<message name="SendMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="SendWebMessageHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="isFlash"
+				type="xsd:string"/>
+		<part name="lifeTime"
+				type="xsd:string"/>
+		<part name="destNumber"
+				type="xsd:string"/>
+		<part name="senderAddr"
+				type="xsd:string"/>
+		<part name="text"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="SendWebMessageHttpPostOut">
+		<part name="Body"
+				element="tns:MessageResponse"/>
+	</message>
+	<message name="GetMessageStatusHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatusHttpPostOut">
+		<part name="Body"
+				element="tns:GetStatusResponse"/>
+	</message>
+	<message name="GetMessageStatus2HttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatus2HttpPostOut">
+		<part name="Body"
+				element="tns:GetStatus2Response"/>
+	</message>
+	<message name="GetWebMessageStatus2HttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebMessageStatus2HttpPostOut">
+		<part name="Body"
+				element="tns:GetStatus2Response"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+	</message>
+	<message name="GetMessageStatusAndSenderAddressHttpPostOut">
+		<part name="Body"
+				element="tns:GetStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="messageID"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebMessageStatusAndSenderAddressHttpPostOut">
+		<part name="Body"
+				element="tns:GetStatusAndSenderAddressResponse"/>
+	</message>
+	<message name="GetSenderAddressesHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetSenderAddressesHttpPostOut">
+		<part name="Body"
+				element="tns:GetSenderAddressesResp"/>
+	</message>
+	<message name="GetWebSenderAddressesHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebSenderAddressesHttpPostOut">
+		<part name="Body"
+				element="tns:GetSenderAddressesResp"/>
+	</message>
+	<message name="AddSenderAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderAddressForMobileOperatorWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderAddressForMobileOperatorWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+	</message>
+	<message name="AddUniqueSenderAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+	</message>
+	<message name="AddUniqueSenderAddressForMobileOperatorWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="address"
+				type="xsd:string"/>
+		<part name="mobileOperator"
+				type="xsd:string"/>
+		<part name="addressForMobileOperator"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderAddressWithModerationResp"/>
+	</message>
+	<message name="GetSenderEmailAddressesHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+	</message>
+	<message name="GetSenderEmailAddressesHttpPostOut">
+		<part name="Body"
+				element="tns:GetSenderEmailAddressesResp"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="GetWebSenderEmailAddressesHttpPostOut">
+		<part name="Body"
+				element="tns:GetSenderEmailAddressesResp"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="password"
+				type="xsd:string"/>
+		<part name="emailAddress"
+				type="xsd:string"/>
+	</message>
+	<message name="AddSenderEmailAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderEmailAddressWithModerationResp"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationHttpPostIn">
+		<part name="userName"
+				type="xsd:string"/>
+		<part name="emailAddress"
+				type="xsd:string"/>
+		<part name="signature"
+				type="xsd:string"/>
+	</message>
+	<message name="AddWebSenderEmailAddressWithModerationHttpPostOut">
+		<part name="Body"
+				element="tns:AddSenderEmailAddressWithModerationResp"/>
+	</message>
+	<portType name="SMSWebServiceSoap">
+		<operation name="GetRoubleBalance">
+			<input name="GetRoubleBalanceRequest"
+					message="tns:GetRoubleBalanceSoapIn"/>
+			<output name="GetRoubleBalanceResponse"
+					message="tns:GetRoubleBalanceSoapOut"/>
+		</operation>
+		<operation name="GetBalance">
+			<documentation>Получить баланс пользователя (количество начисленных СМС)&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;Возвращаемые значения - результат получения баланса пользователя и баланс пользователя (количество начисленных СМС)</documentation>
+			<input name="GetBalanceRequest"
+					message="tns:GetBalanceSoapIn"/>
+			<output name="GetBalanceResponse"
+					message="tns:GetBalanceSoapOut"/>
+		</operation>
+		<operation name="GetTariff">
+			<input name="GetTariffRequest"
+					message="tns:GetTariffSoapIn"/>
+			<output name="GetTariffResponse"
+					message="tns:GetTariffSoapOut"/>
+		</operation>
+		<operation name="GetTariffs">
+			<input name="GetTariffsRequest"
+					message="tns:GetTariffsSoapIn"/>
+			<output name="GetTariffsResponse"
+					message="tns:GetTariffsSoapOut"/>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<input name="GetRoubleMessagesPriceRequest"
+					message="tns:GetRoubleMessagesPriceSoapIn"/>
+			<output name="GetRoubleMessagesPriceResponse"
+					message="tns:GetRoubleMessagesPriceSoapOut"/>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<input name="SendRoubleScheduledMessageRequest"
+					message="tns:SendRoubleScheduledMessageSoapIn"/>
+			<output name="SendRoubleScheduledMessageResponse"
+					message="tns:SendRoubleScheduledMessageSoapOut"/>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<input name="SendScheduledMessageRequest"
+					message="tns:SendScheduledMessageSoapIn"/>
+			<output name="SendScheduledMessageResponse"
+					message="tns:SendScheduledMessageSoapOut"/>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<input name="SendWebScheduledMessageRequest"
+					message="tns:SendWebScheduledMessageSoapIn"/>
+			<output name="SendWebScheduledMessageResponse"
+					message="tns:SendWebScheduledMessageSoapOut"/>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<input name="SendRoubleMessageRequest"
+					message="tns:SendRoubleMessageSoapIn"/>
+			<output name="SendRoubleMessageResponse"
+					message="tns:SendRoubleMessageSoapOut"/>
+		</operation>
+		<operation name="SendMessage">
+			<documentation>Отправить СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;isFlash&lt;/b&gt; - признак флэш-СМС (СМС с этим признаком не сохраняется в памяти телефона и может содержать не более 70 кириллических или 160 латинских символов)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов параметр не поддерживается, его значение должно быть установлено в false&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;lifeTime&lt;/b&gt; - максимальное время жизни СМС в минутах (не дольше, чем в течение этого времени будут происходить попытки доставить СМС, если не получилось с первого раза)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов заданное значение параметра корректируется, чтобы оно было не менее 24 часов&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;destNumber&lt;/b&gt; - номер телефона, на который отправляется СМС (в виде 79114003793)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;senderAddr&lt;/b&gt; - цифробуквенный адрес отправителя СМС (изначально можно использовать только message)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;text&lt;/b&gt; - текст СМС&lt;br/&gt;Возвращаемые значения - результат отправки СМС, идентификатор отправленного СМС (можно использовать в GetMessageStatus) и количество частей в отправленном СМС</documentation>
+			<input name="SendMessageRequest"
+					message="tns:SendMessageSoapIn"/>
+			<output name="SendMessageResponse"
+					message="tns:SendMessageSoapOut"/>
+		</operation>
+		<operation name="SendWebMessage">
+			<input name="SendWebMessageRequest"
+					message="tns:SendWebMessageSoapIn"/>
+			<output name="SendWebMessageResponse"
+					message="tns:SendWebMessageSoapOut"/>
+		</operation>
+		<operation name="GetMessageStatus">
+			<documentation>Получить статус отправленного СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС и статус отправленного СМС</documentation>
+			<input name="GetMessageStatusRequest"
+					message="tns:GetMessageStatusSoapIn"/>
+			<output name="GetMessageStatusResponse"
+					message="tns:GetMessageStatusSoapOut"/>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<documentation>Получить статус отправленного СМС и время доставки СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС и время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено</documentation>
+			<input name="GetMessageStatus2Request"
+					message="tns:GetMessageStatus2SoapIn"/>
+			<output name="GetMessageStatus2Response"
+					message="tns:GetMessageStatus2SoapOut"/>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<input name="GetWebMessageStatus2Request"
+					message="tns:GetWebMessageStatus2SoapIn"/>
+			<output name="GetWebMessageStatus2Response"
+					message="tns:GetWebMessageStatus2SoapOut"/>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<documentation>Получить статус отправленного СМС, время доставки СМС и адрес отправителя СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС, время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено,  и адрес отправителя СМС</documentation>
+			<input name="GetMessageStatusAndSenderAddressRequest"
+					message="tns:GetMessageStatusAndSenderAddressSoapIn"/>
+			<output name="GetMessageStatusAndSenderAddressResponse"
+					message="tns:GetMessageStatusAndSenderAddressSoapOut"/>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<input name="GetWebMessageStatusAndSenderAddressRequest"
+					message="tns:GetWebMessageStatusAndSenderAddressSoapIn"/>
+			<output name="GetWebMessageStatusAndSenderAddressResponse"
+					message="tns:GetWebMessageStatusAndSenderAddressSoapOut"/>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<documentation>Получить список адресов отправителя</documentation>
+			<input name="GetSenderAddressesRequest"
+					message="tns:GetSenderAddressesSoapIn"/>
+			<output name="GetSenderAddressesResponse"
+					message="tns:GetSenderAddressesSoapOut"/>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<input name="GetWebSenderAddressesRequest"
+					message="tns:GetWebSenderAddressesSoapIn"/>
+			<output name="GetWebSenderAddressesResponse"
+					message="tns:GetWebSenderAddressesSoapOut"/>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию</documentation>
+			<input name="AddSenderAddressWithModerationRequest"
+					message="tns:AddSenderAddressWithModerationSoapIn"/>
+			<output name="AddSenderAddressWithModerationResponse"
+					message="tns:AddSenderAddressWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию</documentation>
+			<input name="AddSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationSoapIn"/>
+			<output name="AddSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<input name="AddWebSenderAddressWithModerationRequest"
+					message="tns:AddWebSenderAddressWithModerationSoapIn"/>
+			<output name="AddWebSenderAddressWithModerationResponse"
+					message="tns:AddWebSenderAddressWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationSoapIn"/>
+			<output name="AddWebSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressWithModerationRequest"
+					message="tns:AddUniqueSenderAddressWithModerationSoapIn"/>
+			<output name="AddUniqueSenderAddressWithModerationResponse"
+					message="tns:AddUniqueSenderAddressWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationSoapIn"/>
+			<output name="AddUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<input name="AddWebUniqueSenderAddressWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressWithModerationSoapIn"/>
+			<output name="AddWebUniqueSenderAddressWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationSoapIn"/>
+			<output name="AddWebUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationSoapOut"/>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<documentation>Получить список E-mail адресов отправителя</documentation>
+			<input name="GetSenderEmailAddressesRequest"
+					message="tns:GetSenderEmailAddressesSoapIn"/>
+			<output name="GetSenderEmailAddressesResponse"
+					message="tns:GetSenderEmailAddressesSoapOut"/>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<input name="GetWebSenderEmailAddressesRequest"
+					message="tns:GetWebSenderEmailAddressesSoapIn"/>
+			<output name="GetWebSenderEmailAddressesResponse"
+					message="tns:GetWebSenderEmailAddressesSoapOut"/>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<documentation>Отослать E-mail адрес отправителя на модерацию</documentation>
+			<input name="AddSenderEmailAddressWithModerationRequest"
+					message="tns:AddSenderEmailAddressWithModerationSoapIn"/>
+			<output name="AddSenderEmailAddressWithModerationResponse"
+					message="tns:AddSenderEmailAddressWithModerationSoapOut"/>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<input name="AddWebSenderEmailAddressWithModerationRequest"
+					message="tns:AddWebSenderEmailAddressWithModerationSoapIn"/>
+			<output name="AddWebSenderEmailAddressWithModerationResponse"
+					message="tns:AddWebSenderEmailAddressWithModerationSoapOut"/>
+		</operation>
+	</portType>
+	<portType name="SMSWebServiceHttpGet">
+		<operation name="GetRoubleBalance">
+			<input name="GetRoubleBalanceRequest"
+					message="tns:GetRoubleBalanceHttpGetIn"/>
+			<output name="GetRoubleBalanceResponse"
+					message="tns:GetRoubleBalanceHttpGetOut"/>
+		</operation>
+		<operation name="GetBalance">
+			<documentation>Получить баланс пользователя (количество начисленных СМС)&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;Возвращаемые значения - результат получения баланса пользователя и баланс пользователя (количество начисленных СМС)</documentation>
+			<input name="GetBalanceRequest"
+					message="tns:GetBalanceHttpGetIn"/>
+			<output name="GetBalanceResponse"
+					message="tns:GetBalanceHttpGetOut"/>
+		</operation>
+		<operation name="GetTariff">
+			<input name="GetTariffRequest"
+					message="tns:GetTariffHttpGetIn"/>
+			<output name="GetTariffResponse"
+					message="tns:GetTariffHttpGetOut"/>
+		</operation>
+		<operation name="GetTariffs">
+			<input name="GetTariffsRequest"
+					message="tns:GetTariffsHttpGetIn"/>
+			<output name="GetTariffsResponse"
+					message="tns:GetTariffsHttpGetOut"/>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<input name="GetRoubleMessagesPriceRequest"
+					message="tns:GetRoubleMessagesPriceHttpGetIn"/>
+			<output name="GetRoubleMessagesPriceResponse"
+					message="tns:GetRoubleMessagesPriceHttpGetOut"/>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<input name="SendRoubleScheduledMessageRequest"
+					message="tns:SendRoubleScheduledMessageHttpGetIn"/>
+			<output name="SendRoubleScheduledMessageResponse"
+					message="tns:SendRoubleScheduledMessageHttpGetOut"/>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<input name="SendScheduledMessageRequest"
+					message="tns:SendScheduledMessageHttpGetIn"/>
+			<output name="SendScheduledMessageResponse"
+					message="tns:SendScheduledMessageHttpGetOut"/>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<input name="SendWebScheduledMessageRequest"
+					message="tns:SendWebScheduledMessageHttpGetIn"/>
+			<output name="SendWebScheduledMessageResponse"
+					message="tns:SendWebScheduledMessageHttpGetOut"/>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<input name="SendRoubleMessageRequest"
+					message="tns:SendRoubleMessageHttpGetIn"/>
+			<output name="SendRoubleMessageResponse"
+					message="tns:SendRoubleMessageHttpGetOut"/>
+		</operation>
+		<operation name="SendMessage">
+			<documentation>Отправить СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;isFlash&lt;/b&gt; - признак флэш-СМС (СМС с этим признаком не сохраняется в памяти телефона и может содержать не более 70 кириллических или 160 латинских символов)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов параметр не поддерживается, его значение должно быть установлено в false&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;lifeTime&lt;/b&gt; - максимальное время жизни СМС в минутах (не дольше, чем в течение этого времени будут происходить попытки доставить СМС, если не получилось с первого раза)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов заданное значение параметра корректируется, чтобы оно было не менее 24 часов&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;destNumber&lt;/b&gt; - номер телефона, на который отправляется СМС (в виде 79114003793)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;senderAddr&lt;/b&gt; - цифробуквенный адрес отправителя СМС (изначально можно использовать только message)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;text&lt;/b&gt; - текст СМС&lt;br/&gt;Возвращаемые значения - результат отправки СМС, идентификатор отправленного СМС (можно использовать в GetMessageStatus) и количество частей в отправленном СМС</documentation>
+			<input name="SendMessageRequest"
+					message="tns:SendMessageHttpGetIn"/>
+			<output name="SendMessageResponse"
+					message="tns:SendMessageHttpGetOut"/>
+		</operation>
+		<operation name="SendWebMessage">
+			<input name="SendWebMessageRequest"
+					message="tns:SendWebMessageHttpGetIn"/>
+			<output name="SendWebMessageResponse"
+					message="tns:SendWebMessageHttpGetOut"/>
+		</operation>
+		<operation name="GetMessageStatus">
+			<documentation>Получить статус отправленного СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС и статус отправленного СМС</documentation>
+			<input name="GetMessageStatusRequest"
+					message="tns:GetMessageStatusHttpGetIn"/>
+			<output name="GetMessageStatusResponse"
+					message="tns:GetMessageStatusHttpGetOut"/>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<documentation>Получить статус отправленного СМС и время доставки СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС и время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено</documentation>
+			<input name="GetMessageStatus2Request"
+					message="tns:GetMessageStatus2HttpGetIn"/>
+			<output name="GetMessageStatus2Response"
+					message="tns:GetMessageStatus2HttpGetOut"/>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<input name="GetWebMessageStatus2Request"
+					message="tns:GetWebMessageStatus2HttpGetIn"/>
+			<output name="GetWebMessageStatus2Response"
+					message="tns:GetWebMessageStatus2HttpGetOut"/>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<documentation>Получить статус отправленного СМС, время доставки СМС и адрес отправителя СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС, время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено,  и адрес отправителя СМС</documentation>
+			<input name="GetMessageStatusAndSenderAddressRequest"
+					message="tns:GetMessageStatusAndSenderAddressHttpGetIn"/>
+			<output name="GetMessageStatusAndSenderAddressResponse"
+					message="tns:GetMessageStatusAndSenderAddressHttpGetOut"/>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<input name="GetWebMessageStatusAndSenderAddressRequest"
+					message="tns:GetWebMessageStatusAndSenderAddressHttpGetIn"/>
+			<output name="GetWebMessageStatusAndSenderAddressResponse"
+					message="tns:GetWebMessageStatusAndSenderAddressHttpGetOut"/>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<documentation>Получить список адресов отправителя</documentation>
+			<input name="GetSenderAddressesRequest"
+					message="tns:GetSenderAddressesHttpGetIn"/>
+			<output name="GetSenderAddressesResponse"
+					message="tns:GetSenderAddressesHttpGetOut"/>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<input name="GetWebSenderAddressesRequest"
+					message="tns:GetWebSenderAddressesHttpGetIn"/>
+			<output name="GetWebSenderAddressesResponse"
+					message="tns:GetWebSenderAddressesHttpGetOut"/>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию</documentation>
+			<input name="AddSenderAddressWithModerationRequest"
+					message="tns:AddSenderAddressWithModerationHttpGetIn"/>
+			<output name="AddSenderAddressWithModerationResponse"
+					message="tns:AddSenderAddressWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию</documentation>
+			<input name="AddSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationHttpGetIn"/>
+			<output name="AddSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<input name="AddWebSenderAddressWithModerationRequest"
+					message="tns:AddWebSenderAddressWithModerationHttpGetIn"/>
+			<output name="AddWebSenderAddressWithModerationResponse"
+					message="tns:AddWebSenderAddressWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationHttpGetIn"/>
+			<output name="AddWebSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressWithModerationRequest"
+					message="tns:AddUniqueSenderAddressWithModerationHttpGetIn"/>
+			<output name="AddUniqueSenderAddressWithModerationResponse"
+					message="tns:AddUniqueSenderAddressWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationHttpGetIn"/>
+			<output name="AddUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<input name="AddWebUniqueSenderAddressWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressWithModerationHttpGetIn"/>
+			<output name="AddWebUniqueSenderAddressWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpGetIn"/>
+			<output name="AddWebUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<documentation>Получить список E-mail адресов отправителя</documentation>
+			<input name="GetSenderEmailAddressesRequest"
+					message="tns:GetSenderEmailAddressesHttpGetIn"/>
+			<output name="GetSenderEmailAddressesResponse"
+					message="tns:GetSenderEmailAddressesHttpGetOut"/>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<input name="GetWebSenderEmailAddressesRequest"
+					message="tns:GetWebSenderEmailAddressesHttpGetIn"/>
+			<output name="GetWebSenderEmailAddressesResponse"
+					message="tns:GetWebSenderEmailAddressesHttpGetOut"/>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<documentation>Отослать E-mail адрес отправителя на модерацию</documentation>
+			<input name="AddSenderEmailAddressWithModerationRequest"
+					message="tns:AddSenderEmailAddressWithModerationHttpGetIn"/>
+			<output name="AddSenderEmailAddressWithModerationResponse"
+					message="tns:AddSenderEmailAddressWithModerationHttpGetOut"/>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<input name="AddWebSenderEmailAddressWithModerationRequest"
+					message="tns:AddWebSenderEmailAddressWithModerationHttpGetIn"/>
+			<output name="AddWebSenderEmailAddressWithModerationResponse"
+					message="tns:AddWebSenderEmailAddressWithModerationHttpGetOut"/>
+		</operation>
+	</portType>
+	<portType name="SMSWebServiceHttpPost">
+		<operation name="GetRoubleBalance">
+			<input name="GetRoubleBalanceRequest"
+					message="tns:GetRoubleBalanceHttpPostIn"/>
+			<output name="GetRoubleBalanceResponse"
+					message="tns:GetRoubleBalanceHttpPostOut"/>
+		</operation>
+		<operation name="GetBalance">
+			<documentation>Получить баланс пользователя (количество начисленных СМС)&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;Возвращаемые значения - результат получения баланса пользователя и баланс пользователя (количество начисленных СМС)</documentation>
+			<input name="GetBalanceRequest"
+					message="tns:GetBalanceHttpPostIn"/>
+			<output name="GetBalanceResponse"
+					message="tns:GetBalanceHttpPostOut"/>
+		</operation>
+		<operation name="GetTariff">
+			<input name="GetTariffRequest"
+					message="tns:GetTariffHttpPostIn"/>
+			<output name="GetTariffResponse"
+					message="tns:GetTariffHttpPostOut"/>
+		</operation>
+		<operation name="GetTariffs">
+			<input name="GetTariffsRequest"
+					message="tns:GetTariffsHttpPostIn"/>
+			<output name="GetTariffsResponse"
+					message="tns:GetTariffsHttpPostOut"/>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<input name="GetRoubleMessagesPriceRequest"
+					message="tns:GetRoubleMessagesPriceHttpPostIn"/>
+			<output name="GetRoubleMessagesPriceResponse"
+					message="tns:GetRoubleMessagesPriceHttpPostOut"/>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<input name="SendRoubleScheduledMessageRequest"
+					message="tns:SendRoubleScheduledMessageHttpPostIn"/>
+			<output name="SendRoubleScheduledMessageResponse"
+					message="tns:SendRoubleScheduledMessageHttpPostOut"/>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<input name="SendScheduledMessageRequest"
+					message="tns:SendScheduledMessageHttpPostIn"/>
+			<output name="SendScheduledMessageResponse"
+					message="tns:SendScheduledMessageHttpPostOut"/>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<input name="SendWebScheduledMessageRequest"
+					message="tns:SendWebScheduledMessageHttpPostIn"/>
+			<output name="SendWebScheduledMessageResponse"
+					message="tns:SendWebScheduledMessageHttpPostOut"/>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<input name="SendRoubleMessageRequest"
+					message="tns:SendRoubleMessageHttpPostIn"/>
+			<output name="SendRoubleMessageResponse"
+					message="tns:SendRoubleMessageHttpPostOut"/>
+		</operation>
+		<operation name="SendMessage">
+			<documentation>Отправить СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;isFlash&lt;/b&gt; - признак флэш-СМС (СМС с этим признаком не сохраняется в памяти телефона и может содержать не более 70 кириллических или 160 латинских символов)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов параметр не поддерживается, его значение должно быть установлено в false&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;lifeTime&lt;/b&gt; - максимальное время жизни СМС в минутах (не дольше, чем в течение этого времени будут происходить попытки доставить СМС, если не получилось с первого раза)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;из-за особенностей работы некоторых операторов заданное значение параметра корректируется, чтобы оно было не менее 24 часов&lt;/i&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;destNumber&lt;/b&gt; - номер телефона, на который отправляется СМС (в виде 79114003793)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;senderAddr&lt;/b&gt; - цифробуквенный адрес отправителя СМС (изначально можно использовать только message)&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;text&lt;/b&gt; - текст СМС&lt;br/&gt;Возвращаемые значения - результат отправки СМС, идентификатор отправленного СМС (можно использовать в GetMessageStatus) и количество частей в отправленном СМС</documentation>
+			<input name="SendMessageRequest"
+					message="tns:SendMessageHttpPostIn"/>
+			<output name="SendMessageResponse"
+					message="tns:SendMessageHttpPostOut"/>
+		</operation>
+		<operation name="SendWebMessage">
+			<input name="SendWebMessageRequest"
+					message="tns:SendWebMessageHttpPostIn"/>
+			<output name="SendWebMessageResponse"
+					message="tns:SendWebMessageHttpPostOut"/>
+		</operation>
+		<operation name="GetMessageStatus">
+			<documentation>Получить статус отправленного СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС и статус отправленного СМС</documentation>
+			<input name="GetMessageStatusRequest"
+					message="tns:GetMessageStatusHttpPostIn"/>
+			<output name="GetMessageStatusResponse"
+					message="tns:GetMessageStatusHttpPostOut"/>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<documentation>Получить статус отправленного СМС и время доставки СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС и время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено</documentation>
+			<input name="GetMessageStatus2Request"
+					message="tns:GetMessageStatus2HttpPostIn"/>
+			<output name="GetMessageStatus2Response"
+					message="tns:GetMessageStatus2HttpPostOut"/>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<input name="GetWebMessageStatus2Request"
+					message="tns:GetWebMessageStatus2HttpPostIn"/>
+			<output name="GetWebMessageStatus2Response"
+					message="tns:GetWebMessageStatus2HttpPostOut"/>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<documentation>Получить статус отправленного СМС, время доставки СМС и адрес отправителя СМС&lt;br/&gt;Параметры:&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;userName&lt;/b&gt; - логин пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;password&lt;/b&gt; - пароль пользователя, полученный при регистрации&lt;br/&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;messageID&lt;/b&gt; - идентификатор отправленного СМС (возвращается SendMessage/SendRoubleMessage)&lt;br/&gt;Возвращаемые значения - результат получения статуса отправленного СМС, статус отправленного СМС, время доставки СМС (UTC, в виде 2011-12-31T23:59:59Z), если СМС доставлено,  и адрес отправителя СМС</documentation>
+			<input name="GetMessageStatusAndSenderAddressRequest"
+					message="tns:GetMessageStatusAndSenderAddressHttpPostIn"/>
+			<output name="GetMessageStatusAndSenderAddressResponse"
+					message="tns:GetMessageStatusAndSenderAddressHttpPostOut"/>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<input name="GetWebMessageStatusAndSenderAddressRequest"
+					message="tns:GetWebMessageStatusAndSenderAddressHttpPostIn"/>
+			<output name="GetWebMessageStatusAndSenderAddressResponse"
+					message="tns:GetWebMessageStatusAndSenderAddressHttpPostOut"/>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<documentation>Получить список адресов отправителя</documentation>
+			<input name="GetSenderAddressesRequest"
+					message="tns:GetSenderAddressesHttpPostIn"/>
+			<output name="GetSenderAddressesResponse"
+					message="tns:GetSenderAddressesHttpPostOut"/>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<input name="GetWebSenderAddressesRequest"
+					message="tns:GetWebSenderAddressesHttpPostIn"/>
+			<output name="GetWebSenderAddressesResponse"
+					message="tns:GetWebSenderAddressesHttpPostOut"/>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию</documentation>
+			<input name="AddSenderAddressWithModerationRequest"
+					message="tns:AddSenderAddressWithModerationHttpPostIn"/>
+			<output name="AddSenderAddressWithModerationResponse"
+					message="tns:AddSenderAddressWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию</documentation>
+			<input name="AddSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationHttpPostIn"/>
+			<output name="AddSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddSenderAddressForMobileOperatorWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<input name="AddWebSenderAddressWithModerationRequest"
+					message="tns:AddWebSenderAddressWithModerationHttpPostIn"/>
+			<output name="AddWebSenderAddressWithModerationResponse"
+					message="tns:AddWebSenderAddressWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationHttpPostIn"/>
+			<output name="AddWebSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebSenderAddressForMobileOperatorWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<documentation>Отослать адрес отправителя на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressWithModerationRequest"
+					message="tns:AddUniqueSenderAddressWithModerationHttpPostIn"/>
+			<output name="AddUniqueSenderAddressWithModerationResponse"
+					message="tns:AddUniqueSenderAddressWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<documentation>Отослать адрес отправителя оператора на модерацию (с проверкой его на уникальность)</documentation>
+			<input name="AddUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationHttpPostIn"/>
+			<output name="AddUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddUniqueSenderAddressForMobileOperatorWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<input name="AddWebUniqueSenderAddressWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressWithModerationHttpPostIn"/>
+			<output name="AddWebUniqueSenderAddressWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<input name="AddWebUniqueSenderAddressForMobileOperatorWithModerationRequest"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpPostIn"/>
+			<output name="AddWebUniqueSenderAddressForMobileOperatorWithModerationResponse"
+					message="tns:AddWebUniqueSenderAddressForMobileOperatorWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<documentation>Получить список E-mail адресов отправителя</documentation>
+			<input name="GetSenderEmailAddressesRequest"
+					message="tns:GetSenderEmailAddressesHttpPostIn"/>
+			<output name="GetSenderEmailAddressesResponse"
+					message="tns:GetSenderEmailAddressesHttpPostOut"/>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<input name="GetWebSenderEmailAddressesRequest"
+					message="tns:GetWebSenderEmailAddressesHttpPostIn"/>
+			<output name="GetWebSenderEmailAddressesResponse"
+					message="tns:GetWebSenderEmailAddressesHttpPostOut"/>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<documentation>Отослать E-mail адрес отправителя на модерацию</documentation>
+			<input name="AddSenderEmailAddressWithModerationRequest"
+					message="tns:AddSenderEmailAddressWithModerationHttpPostIn"/>
+			<output name="AddSenderEmailAddressWithModerationResponse"
+					message="tns:AddSenderEmailAddressWithModerationHttpPostOut"/>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<input name="AddWebSenderEmailAddressWithModerationRequest"
+					message="tns:AddWebSenderEmailAddressWithModerationHttpPostIn"/>
+			<output name="AddWebSenderEmailAddressWithModerationResponse"
+					message="tns:AddWebSenderEmailAddressWithModerationHttpPostOut"/>
+		</operation>
+	</portType>
+	<binding name="SMSWebServiceSoap"
+			type="tns:SMSWebServiceSoap">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetRoubleBalance">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetRoubleBalance"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetBalance">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetBalance"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTariff">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetTariff"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTariffs">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetTariffs"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetRoubleMessagesPrice"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendRoubleScheduledMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendScheduledMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendWebScheduledMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendRoubleMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendWebMessage">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendWebMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatus">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatus2"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebMessageStatus2"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatusAndSenderAddress"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebMessageStatusAndSenderAddress"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetSenderAddresses"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebSenderAddresses"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddUniqueSenderAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddUniqueSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebUniqueSenderAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebUniqueSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetSenderEmailAddresses"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebSenderEmailAddresses"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderEmailAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<soapbind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderEmailAddressWithModeration"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="SMSWebServiceSoap12"
+			type="tns:SMSWebServiceSoap">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetRoubleBalance">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetRoubleBalance"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetBalance">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetBalance"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTariff">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetTariff"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTariffs">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetTariffs"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetRoubleMessagesPrice"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendRoubleScheduledMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendScheduledMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendWebScheduledMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendRoubleMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="SendWebMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/SendWebMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatus">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatus"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatus2"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebMessageStatus2"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetMessageStatusAndSenderAddress"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebMessageStatusAndSenderAddress"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetSenderAddresses"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebSenderAddresses"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddUniqueSenderAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddUniqueSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebUniqueSenderAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebUniqueSenderAddressForMobileOperatorWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetSenderEmailAddresses"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/GetWebSenderEmailAddresses"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddSenderEmailAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<soap12bind:operation style="document"
+					soapAction="http://smsdelivery.ru/AddWebSenderEmailAddressWithModeration"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="SMSWebServiceHttpGet"
+			type="tns:SMSWebServiceHttpGet">
+		<operation name="GetRoubleBalance">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetBalance">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetTariff">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetTariffs">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendWebMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatus">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+	</binding>
+	<binding name="SMSWebServiceHttpPost"
+			type="tns:SMSWebServiceHttpPost">
+		<operation name="GetRoubleBalance">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetBalance">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetTariff">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetTariffs">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetRoubleMessagesPrice">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendRoubleScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendWebScheduledMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendRoubleMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="SendWebMessage">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatus">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatus2">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebMessageStatus2">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetMessageStatusAndSenderAddress">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebMessageStatusAndSenderAddress">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetSenderAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebSenderAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddUniqueSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddUniqueSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebUniqueSenderAddressForMobileOperatorWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetSenderEmailAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="GetWebSenderEmailAddresses">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddSenderEmailAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+		<operation name="AddWebSenderEmailAddressWithModeration">
+			<input/>
+			<output/>
+		</operation>
+	</binding>
+	<service name="SMSWebService">
+		<port name="SMSWebServiceSoap"
+				binding="tns:SMSWebServiceSoap">
+			<soapbind:address location="http://ws1.smsdelivery.ru/SMSWebservice.asmx"/>
+		</port>
+		<port name="SMSWebServiceSoap12"
+				binding="tns:SMSWebServiceSoap12">
+			<soap12bind:address location="http://ws1.smsdelivery.ru/SMSWebservice.asmx"/>
+		</port>
+		<port name="SMSWebServiceHttpGet"
+				binding="tns:SMSWebServiceHttpGet"/>
+		<port name="SMSWebServiceHttpPost"
+				binding="tns:SMSWebServiceHttpPost"/>
+	</service>
+</definitions>

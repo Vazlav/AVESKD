@@ -1,0 +1,33 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://localhost/ave_skd">
+	<valueType name="TypeElements" base="xs:string"/>
+	<objectType name="Goods_Assort_Result">
+		<property xmlns:d3p1="http://localhost/ave_skd" name="GAT_strings" type="d3p1:Goods_Assort_Table_String" lowerBound="0" upperBound="-1"/>
+		<property name="ResultState" type="xs:string"/>
+	</objectType>
+	<objectType name="Goods_Assort_Table_String">
+		<property name="Date" type="xs:date"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="pack_qnt" type="xs:integer"/>
+	</objectType>
+	<objectType name="Pers_model_data_string">
+		<property name="WorkDays" type="xs:integer"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="TO" type="xs:float"/>
+		<property name="ChecksCount" type="xs:integer"/>
+		<property name="AVG_DayTO" type="xs:float"/>
+		<property name="AVG_DayChCnt" type="xs:float"/>
+		<property name="Apt_Brend_code" type="xs:integer"/>
+		<property name="Apt_Brend_Name" type="xs:string"/>
+	</objectType>
+	<objectType name="Pers_model_data">
+		<property xmlns:d3p1="http://localhost/ave_skd" name="PMD_Strings" type="d3p1:Pers_model_data_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Pers_FactWD_string">
+		<property name="TabNum" type="xs:string"/>
+		<property name="apt_code" type="xs:integer"/>
+		<property name="Wrk_date" type="xs:date"/>
+	</objectType>
+	<objectType name="Pers_FactWD">
+		<property xmlns:d3p1="http://localhost/ave_skd" name="FWD_Strings" type="d3p1:Pers_FactWD_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

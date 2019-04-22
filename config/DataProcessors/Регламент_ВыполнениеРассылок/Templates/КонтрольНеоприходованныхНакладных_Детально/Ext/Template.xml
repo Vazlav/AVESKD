@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВхНомерНакл</dataPath>
+			<field>ВхНомерНакл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер накладной</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регион</dataPath>
+			<field>Регион</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВхДатаНакл</dataPath>
+			<field>ВхДатаНакл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата накладной</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВхНомерСФ</dataPath>
+			<field>ВхНомерСФ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер С/Ф</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КруглосуточнаяАптека</dataPath>
+			<field>КруглосуточнаяАптека</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Круглосуточная аптека</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КомментарийАптеки</dataPath>
+			<field>КомментарийАптеки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Фирма</dataPath>
+			<field>Фирма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНакладных</dataPath>
+			<field>КоличествоНакладных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во накл.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаЗакуп</dataPath>
+			<field>СуммаЗакуп</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма закуп.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусАптеки</dataPath>
+			<field>СтатусАптеки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус аптеки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДокАптеки</dataPath>
+			<field>СтатусДокАптеки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус документа (в аптеке)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаФактПоступления</dataPath>
+			<field>ДатаФактПоступления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата факт. поступления </v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УправляющийФИО</dataPath>
+			<field>УправляющийФИО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Управляющий аптекой</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДиректорФИО</dataPath>
+			<field>ДиректорФИО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Директор БЕ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДокумента</dataPath>
+			<field>СтатусДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус документа (в офисе)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аптека</dataPath>
+			<field>Аптека</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аптека</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРозн</dataPath>
+			<field>СуммаРозн</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма розн.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПретензий</dataPath>
+			<field>СуммаПретензий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма претензий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КроссДокинг</dataPath>
+			<field>КроссДокинг</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кросс-докинг</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	МестаХранения.Ссылка,
+	МестаХранения.Наименование КАК НаименованиеАптеки,
+	МестаХранения.СтатусАптеки КАК СтатусАптеки,
+	ВЫБОР
+		КОГДА МестаХранения.РежимРаботы = &amp;КруглосуточныйРежим
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК КруглосуточнаяАптека,
+	ВЫБОР
+		КОГДА МестаХранения.СубъектРФ В (&amp;СубъектМ, &amp;СубъектМО)
+			ТОГДА "ММО"
+		ИНАЧЕ "СПб"
+	КОНЕЦ КАК Регион,
+	ЕСТЬNULL(ДиректораБЕ.ФИО, "") КАК ДиректорФИО,
+	ЕСТЬNULL(УправляющиеАП.ФИО, "") КАК УправляющийФИО
+ПОМЕСТИТЬ втСклады
+ИЗ
+	Справочник.МестаХранения КАК МестаХранения
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.МестаХранения.Заведующие КАК УправляющиеАП
+		ПО МестаХранения.Ссылка = УправляющиеАП.Ссылка
+			И (УправляющиеАП.Должность = ЗНАЧЕНИЕ(Перечисление.ДолжностиРуководителейАптек.УправляющийАптекой))
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.МестаХранения.Заведующие КАК ДиректораБЕ
+		ПО МестаХранения.Ссылка = ДиректораБЕ.Ссылка
+			И (ДиректораБЕ.Должность = ЗНАЧЕНИЕ(Перечисление.ДолжностиРуководителейАптек.ДиректорБизнесЕдиницы))
+ГДЕ
+	МестаХранения.ПометкаУдаления = ЛОЖЬ
+	И МестаХранения.СубъектРФ В (&amp;СубъектМ, &amp;СубъектМО, &amp;СубъектСПб, &amp;СубъектЛО)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УЗ_ПоступлениеТовара.Ссылка,
+	ЕСТЬNULL(Поставщики.Наименование + " (кросс-докинг)", УЗ_ПоступлениеТовара.Поставщик.Наименование) КАК Поставщик
+ПОМЕСТИТЬ втПоступления
+ИЗ
+	Документ.УЗ_ПоступлениеТовара КАК УЗ_ПоступлениеТовара
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втСклады КАК втСклады
+		ПО УЗ_ПоступлениеТовара.Склад = втСклады.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦепочкиПоКроссДокингу КАК ЦепочкиПоКроссДокингу
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Поставщики КАК Поставщики
+			ПО ЦепочкиПоКроссДокингу.ПоставщикКод = Поставщики.Код
+		ПО УЗ_ПоступлениеТовара.Ссылка = ЦепочкиПоКроссДокингу.Накладная
+ГДЕ
+	УЗ_ПоступлениеТовара.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И УЗ_ПоступлениеТовара.Статус &lt;&gt; &amp;Статус
+	И НЕ УЗ_ПоступлениеТовара.СтатусДокАптеки В (&amp;СтатусыВАптеке)
+	И НЕ УЗ_ПоступлениеТовара.Комментарий ПОДОБНО "#Принудительно установлена дата завоза#%"
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПоступления.Ссылка КАК ДокументПоступления,
+	СУММА(ПретензияПоставщикуТовар.СуммаЗакупБезНДС) КАК СуммаПретензий
+ПОМЕСТИТЬ втПретензии
+ИЗ
+	Документ.ПретензияПоставщику.Товар КАК ПретензияПоставщикуТовар
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втПоступления КАК втПоступления
+		ПО ПретензияПоставщикуТовар.Ссылка.ДокументПоступления = втПоступления.Ссылка
+ГДЕ
+	ПретензияПоставщикуТовар.Ссылка.ПометкаУдаления = ЛОЖЬ
+	И ПретензияПоставщикуТовар.ТипПретензии = &amp;ТипПретензии
+	И ПретензияПоставщикуТовар.Аннулировано = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	втПоступления.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УЗ_ПоступлениеТовара.Номер,
+	НАЧАЛОПЕРИОДА(УЗ_ПоступлениеТовара.Дата, ДЕНЬ) КАК Дата,
+	УЗ_ПоступлениеТовара.ВхНомерНакл,
+	УЗ_ПоступлениеТовара.ВхДатаНакл,
+	УЗ_ПоступлениеТовара.ВхНомерСФ,
+	НАЧАЛОПЕРИОДА(УЗ_ПоступлениеТовара.ДатаФактПоступления, ДЕНЬ) КАК ДатаФактПоступления,
+	втСклады.НаименованиеАптеки КАК Аптека,
+	УЗ_ПоступлениеТовара.Фирма.Наименование КАК Фирма,
+	втПоступления.Поставщик КАК Поставщик,
+	втСклады.СтатусАптеки,
+	втСклады.КруглосуточнаяАптека,
+	втСклады.Регион,
+	втСклады.ДиректорФИО,
+	втСклады.УправляющийФИО,
+	УЗ_ПоступлениеТовара.Статус КАК СтатусДокумента,
+	УЗ_ПоступлениеТовара.СтатусДокАптеки,
+	УЗ_ПоступлениеТовара.Проведен,
+	УЗ_ПоступлениеТовара.ПометкаУдаления,
+	УЗ_ПоступлениеТовара.Комментарий,
+	УЗ_ПоступлениеТовара.КомментарийАптеки,
+	УЗ_ПоступлениеТовара.СуммаДок КАК СуммаЗакуп,
+	УЗ_ПоступлениеТовара.СуммаДокРозн КАК СуммаРозн,
+	1 КАК КоличествоНакладных,
+	ЕСТЬNULL(втПретензии.СуммаПретензий, 0) КАК СуммаПретензий,
+	УЗ_ПоступлениеТовара.КД_ЭДО КАК КроссДокинг
+ИЗ
+	Документ.УЗ_ПоступлениеТовара КАК УЗ_ПоступлениеТовара
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втСклады КАК втСклады
+		ПО УЗ_ПоступлениеТовара.Склад = втСклады.Ссылка
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втПоступления КАК втПоступления
+		ПО УЗ_ПоступлениеТовара.Ссылка = втПоступления.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ втПретензии КАК втПретензии
+		ПО УЗ_ПоступлениеТовара.Ссылка = втПретензии.ДокументПоступления</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаЗакуп</dataPath>
+		<expression>Сумма(СуммаЗакуп)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРозн</dataPath>
+		<expression>Сумма(СуммаРозн)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНакладных</dataPath>
+		<expression>Сумма(КоличествоНакладных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПретензий</dataPath>
+		<expression>Сумма(СуммаПретензий)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Статус</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статус</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.СтатусПрихода</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусПрихода.Черновик</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СтатусыВАптеке</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статусы в аптеке</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.СтатусДокАптеки</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусДокАптеки.Проведен</value>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусДокАптеки.Аннулирован</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СубъектЛО</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субъект ЛО</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СубъектыРФ</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СубъектыРФ.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СубъектМ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субъект М</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СубъектыРФ</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СубъектыРФ.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СубъектМО</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субъект МО</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СубъектыРФ</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СубъектыРФ.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СубъектСПб</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субъект СПб</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СубъектыРФ</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СубъектыРФ.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КруглосуточныйРежим</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Круглосуточный режим</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.РежимыРаботыАптек</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.РежимыРаботыАптек.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипПретензии</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип претензии</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыПретензийПоставщику</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыПретензийПоставщику.НетПоставкиТовара</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВхНомерНакл</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВхНомерСФ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВхДатаНакл</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаФактПоступления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Аптека</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Фирма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регион</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусАптеки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КруглосуточнаяАптека</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДиректорФИО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УправляющийФИО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусДокАптеки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПометкаУдаления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Проведен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КроссДокинг</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийАптеки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНакладных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаЗакуп</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРозн</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПретензий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Дата</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Номер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контроль неоприходованных накладных (детально)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

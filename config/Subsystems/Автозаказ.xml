@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Subsystem uuid="e85f006d-b09f-42b3-95a4-576d6be56f86">
+		<Properties>
+			<Name>Автозаказ</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автозаказ</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>true</IncludeInCommandInterface>
+			<Explanation/>
+			<Picture/>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ИспользоватьМатрицуНедостоверных</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Constant.ИспользоватьГрафикАвтозаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ГруппыАП</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Матрица</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.МатрицаABC</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.МатрицаQminQmax</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.МатрицаСезонности</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.НеотказываемыйТовар</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ШаблоныМатриц</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ЭксклюзивныеПоставщикиНоменклатуры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ГрафикиАвтозаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.Автозаказ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ЗагрузкаМатрицНедостоверности</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.Матрица</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.МатрицаНЗ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.МенеджерМатрицАптек</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ПерестокАптек</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СохраненныеРасчетыЗаказов</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.УточненныйЗаказ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ИсключенияАвтозаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.МатрицаНедостоверных</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects/>
+	</Subsystem>
+</MetaDataObject>

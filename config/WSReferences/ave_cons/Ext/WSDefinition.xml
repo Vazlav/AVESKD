@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="AVE_CONS_INDataSync.ORG"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="AVE_CONS_INDataSync.ORG"
+		name="AVE_CONS_INDataSync"
+		targetNamespace="AVE_CONS_INDataSync.ORG">
+	<types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xs1="AVE_CONS_INDataSync.ORG"
+				targetNamespace="AVE_CONS_INDataSync.ORG"
+				attributeFormDefault="unqualified"
+				elementFormDefault="qualified">
+			<xs:complexType name="BankAccount">
+				<xs:sequence>
+					<xs:element name="ACC_Name"
+							type="xs:string"/>
+					<xs:element name="ACC_num"
+							type="xs:string"/>
+					<xs:element name="CountragentCode"
+							type="xs:string"/>
+					<xs:element name="BIK"
+							type="xs:string"/>
+					<xs:element name="ACC_Vid"
+							type="xs:string"/>
+					<xs:element name="CurrCode"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Contragent">
+				<xs:sequence>
+					<xs:element name="Code"
+							type="xs:string"/>
+					<xs:element name="Name"
+							type="xs:string"/>
+					<xs:element name="FullName"
+							type="xs:string"/>
+					<xs:element name="INN"
+							type="xs:string"/>
+					<xs:element name="KPP"
+							type="xs:string"/>
+					<xs:element name="OKOPF"
+							type="xs:string"/>
+					<xs:element name="ParentCode"
+							type="xs:string"/>
+					<xs:element name="ParentName"
+							type="xs:string"/>
+					<xs:element name="IsGroup"
+							type="xs:boolean"/>
+					<xs:element name="UFL"
+							type="xs:integer"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Dogovor">
+				<xs:sequence>
+					<xs:element name="Code"
+							type="xs:string"/>
+					<xs:element name="CountragentCode"
+							type="xs:string"/>
+					<xs:element name="OrgINN"/>
+					<xs:element name="VidDog"
+							type="xs:integer"/>
+					<xs:element name="Date"
+							type="xs:date"/>
+					<xs:element name="Number"
+							type="xs:string"/>
+					<xs:element name="Name"
+							type="xs:string"/>
+					<xs:element name="CurrCode"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Store">
+				<xs:sequence>
+					<xs:element name="code"
+							type="xs:integer"/>
+					<xs:element name="org_inn"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="delmark"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="Hellow">
+				<xs:complexType>
+					<xs:sequence/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HellowResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_Store">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StoreData"
+								type="xsd1:Store"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_StoreResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_Contragent">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Contragent"
+								type="xsd1:Contragent"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_ContragentResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_Dogovor">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Dogovor"
+								type="xsd1:Dogovor"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_DogovorResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_BankAccount">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BankAccount"
+								type="xsd1:BankAccount"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateUpdate_BankAccountResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+	<message name="HellowRequestMessage">
+		<part name="parameters"
+				element="tns:Hellow"/>
+	</message>
+	<message name="HellowResponseMessage">
+		<part name="parameters"
+				element="tns:HellowResponse"/>
+	</message>
+	<message name="CreateUpdate_StoreRequestMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_Store"/>
+	</message>
+	<message name="CreateUpdate_StoreResponseMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_StoreResponse"/>
+	</message>
+	<message name="CreateUpdate_ContragentRequestMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_Contragent"/>
+	</message>
+	<message name="CreateUpdate_ContragentResponseMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_ContragentResponse"/>
+	</message>
+	<message name="CreateUpdate_DogovorRequestMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_Dogovor"/>
+	</message>
+	<message name="CreateUpdate_DogovorResponseMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_DogovorResponse"/>
+	</message>
+	<message name="CreateUpdate_BankAccountRequestMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_BankAccount"/>
+	</message>
+	<message name="CreateUpdate_BankAccountResponseMessage">
+		<part name="parameters"
+				element="tns:CreateUpdate_BankAccountResponse"/>
+	</message>
+	<portType name="AVE_CONS_INDataSyncPortType">
+		<operation name="Hellow">
+			<input name="HellowRequest"
+					message="tns:HellowRequestMessage"/>
+			<output name="HellowResponse"
+					message="tns:HellowResponseMessage"/>
+		</operation>
+		<operation name="CreateUpdate_Store">
+			<input name="CreateUpdate_StoreRequest"
+					message="tns:CreateUpdate_StoreRequestMessage"/>
+			<output name="CreateUpdate_StoreResponse"
+					message="tns:CreateUpdate_StoreResponseMessage"/>
+		</operation>
+		<operation name="CreateUpdate_Contragent">
+			<input name="CreateUpdate_ContragentRequest"
+					message="tns:CreateUpdate_ContragentRequestMessage"/>
+			<output name="CreateUpdate_ContragentResponse"
+					message="tns:CreateUpdate_ContragentResponseMessage"/>
+		</operation>
+		<operation name="CreateUpdate_Dogovor">
+			<input name="CreateUpdate_DogovorRequest"
+					message="tns:CreateUpdate_DogovorRequestMessage"/>
+			<output name="CreateUpdate_DogovorResponse"
+					message="tns:CreateUpdate_DogovorResponseMessage"/>
+		</operation>
+		<operation name="CreateUpdate_BankAccount">
+			<input name="CreateUpdate_BankAccountRequest"
+					message="tns:CreateUpdate_BankAccountRequestMessage"/>
+			<output name="CreateUpdate_BankAccountResponse"
+					message="tns:CreateUpdate_BankAccountResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="AVE_CONS_INDataSyncSoapBinding"
+			type="tns:AVE_CONS_INDataSyncPortType">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Hellow">
+			<soapbind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:Hellow"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Store">
+			<soapbind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Store"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Contragent">
+			<soapbind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Contragent"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Dogovor">
+			<soapbind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Dogovor"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_BankAccount">
+			<soapbind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_BankAccount"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="AVE_CONS_INDataSyncSoap12Binding"
+			type="tns:AVE_CONS_INDataSyncPortType">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Hellow">
+			<soap12bind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:Hellow"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Store">
+			<soap12bind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Store"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Contragent">
+			<soap12bind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Contragent"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_Dogovor">
+			<soap12bind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_Dogovor"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateUpdate_BankAccount">
+			<soap12bind:operation style="document"
+					soapAction="AVE_CONS_INDataSync.ORG#AVE_CONS_INDataSync:CreateUpdate_BankAccount"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="AVE_CONS_INDataSync">
+		<port name="AVE_CONS_INDataSyncSoap"
+				binding="tns:AVE_CONS_INDataSyncSoapBinding">
+			<documentation> 
+				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+			</documentation>
+			<soapbind:address location="http://10.250.205.11:8080/ave_cons/ws/ave_cons_indatasync.1cws"/>
+		</port>
+		<port name="AVE_CONS_INDataSyncSoap12"
+				binding="tns:AVE_CONS_INDataSyncSoap12Binding">
+			<soap12bind:address location="http://10.250.205.11:8080/ave_cons/ws/ave_cons_indatasync.1cws"/>
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Subsystem uuid="f6c04feb-a996-496a-8681-87616624732b">
+		<Properties>
+			<Name>Интернет_аптека</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Интернет-аптека</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<IncludeInCommandInterface>true</IncludeInCommandInterface>
+			<Explanation/>
+			<Picture/>
+			<Content>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Курьеры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.МедПреды</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.Врачи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИнтернетЗаказ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекПродажи</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекСлужебный</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассацияДенегОтКурьеров_ИнтернетАптека</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ККМ_ТипыСлужебныхЧеков</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ИА_СтатусСтрокиЗаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ИА_СтатусЗаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.Курьеры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Report.ПотребностьИнтернетАптеки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.УстановкаДатыВремениНаККМ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ПросмотрХТМЛСтраницы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ЗакрытиеКассовойСменыПоЧекам</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">a9b6e9f8-c813-4da4-83b9-4294335773c5</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ККМ_ПользователиКассиры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.УчетДенегВИнтернетАптеке</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.РезервПодбора</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.ОМ_СправочнаяСлужба</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">f2530cce-a2ba-4175-807b-25c260a5eac5</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.КлиентыИнтернетАптеки</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.Корзина</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ИА_ТипИсточникаЗаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.ПродажиПоПартиям</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ГенераторЗаявкиНаПеремещениеВОнлайнЗону</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ДопРеквизитыМестХранения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">FilterCriterion.ТоварВИнтернетЗаказе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.СС_ДополнительныеДействия</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.СМС_Рассылка</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.СМС_Статус</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.ТипыСМССообщений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ОтправкаСМС</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Catalog.ЛинииМетро</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">1e2a80be-0089-465d-84a9-e8c29a5b31fb</xr:Item>
+			</Content>
+		</Properties>
+		<ChildObjects>
+			<Subsystem>СМС_Рассылка</Subsystem>
+			<Subsystem>ИнтернетАптека_ЦО</Subsystem>
+		</ChildObjects>
+	</Subsystem>
+</MetaDataObject>

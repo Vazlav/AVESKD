@@ -1,0 +1,53 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.366-hybris-reservation.org">
+	<property name="ReservationOrder"/>
+	<objectType name="ReservationOrder">
+		<property xmlns:d3p1="http://www.366-hybris-reservation.org" name="hdr" type="d3p1:HdrList"/>
+		<property xmlns:d3p1="http://www.366-hybris-reservation.org" name="str" type="d3p1:StrList" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="HdrList">
+		<property name="apt_id" type="xs:integer"/>
+		<property name="dsc_office" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="buyer_fullname" type="xs:string"/>
+		<property name="buyer_phone" type="xs:string" nillable="true"/>
+		<property name="sum_prepay" type="xs:float"/>
+		<property name="id_source_order" type="xs:integer"/>
+		<property name="ret_ch" type="xs:string"/>
+		<property name="allow_ret_promo" type="xs:integer" lowerBound="0" nillable="true"/>
+		<property name="allow_ret_half" type="xs:integer" lowerBound="0" nillable="true"/>
+		<property name="ndoc_source_order" type="xs:string"/>
+		<property name="ddoc_source_order" type="xs:dateTime"/>
+		<property name="channel_order" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="StrList">
+		<property name="id_goods" type="xs:integer"/>
+		<property name="goods_qty" type="xs:integer"/>
+		<property name="goods_ptr" type="xs:integer"/>
+		<property name="goods_prc" type="xs:float"/>
+		<property name="sum_rtl_w_vat" type="xs:float"/>
+	</objectType>
+	<objectType name="Answer">
+		<property xmlns:d3p1="http://www.366-hybris-reservation.org" name="Message" type="d3p1:ActionResponse"/>
+	</objectType>
+	<objectType name="ActionResponse">
+		<property name="ResultCode" type="xs:integer"/>
+		<property name="ErrorText" type="xs:string"/>
+	</objectType>
+	<objectType name="ReservationOrderOut">
+		<property xmlns:d3p1="http://www.366-hybris-reservation.org" name="HdrOut" type="d3p1:HdrOutList"/>
+		<property xmlns:d3p1="http://www.366-hybris-reservation.org" name="StrOut" type="d3p1:StrOutList" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="HdrOutList">
+		<property name="ndoc_source_order" type="xs:string"/>
+		<property name="Status" type="xs:string"/>
+	</objectType>
+	<objectType name="StrOutList">
+		<property name="id_goods" type="xs:integer"/>
+		<property name="id_part" type="xs:integer"/>
+		<property name="qty_requested" type="xs:integer"/>
+		<property name="qty_reserved" type="xs:integer"/>
+		<property name="price_requested" type="xs:float"/>
+		<property name="price_reserved" type="xs:float"/>
+		<property name="ExpiryDate" type="xs:dateTime"/>
+		<property name="ExpiryDateFact" type="xs:dateTime"/>
+	</objectType>
+</package>

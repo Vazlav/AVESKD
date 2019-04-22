@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Товар</dataPath>
+			<field>Товар</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товар</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоСкоррРасход</dataPath>
+			<field>КолвоСкоррРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкоррРасход</dataPath>
+			<field>СуммаСкоррРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма (закуп. с НДС)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТоварКод</dataPath>
+			<field>ТоварКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКод</dataPath>
+			<field>СкладКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПартияКод</dataPath>
+			<field>ПартияКод</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	АП.Ссылка КАК Ссылка,
+	АП.Код КАК Код,
+	АП.Производитель КАК Производитель
+ПОМЕСТИТЬ втТовары
+ИЗ
+	Справочник.АССОРТИМЕНТНЫЙ_ПЛАН КАК АП
+{ГДЕ
+	АП.Ссылка.* КАК Товар}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МХ.Ссылка КАК Ссылка,
+	МХ.Код КАК Код
+ПОМЕСТИТЬ втСклады
+ИЗ
+	Справочник.МестаХранения КАК МХ
+{ГДЕ
+	МХ.Ссылка.* КАК Склад}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СкорректированныеПродажиТовара.Дата КАК Дата,
+	втТовары.Ссылка КАК Товар,
+	втТовары.Производитель КАК Производитель,
+	втСклады.Ссылка КАК Склад,
+	СкорректированныеПродажиТовара.Количество КАК Количество,
+	СкорректированныеПродажиТовара.СуммаЗакупСНДС КАК СуммаЗакупСНДС
+ПОМЕСТИТЬ втСкорректированныеДвижения
+ИЗ
+	РегистрСведений.СкорректированныеПродажиТовара КАК СкорректированныеПродажиТовара
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втСклады КАК втСклады
+		ПО СкорректированныеПродажиТовара.КодСклада = втСклады.Код
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втТовары КАК втТовары
+		ПО СкорректированныеПродажиТовара.КодТовара = втТовары.Код
+ГДЕ
+	СкорректированныеПродажиТовара.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	втСкорректированныеДвижения.Дата КАК Дата,
+	втСкорректированныеДвижения.Производитель КАК Производитель
+ПОМЕСТИТЬ втСкорректированныеДвиженияГруппировка
+ИЗ
+	втСкорректированныеДвижения КАК втСкорректированныеДвижения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Реализации.Период КАК Период,
+	втСклады.Ссылка КАК Склад,
+	втТовары.Ссылка КАК Товар,
+	втТовары.Производитель КАК Производитель,
+	СУММА(ВЫРАЗИТЬ(Реализации.КоличествоОборот / УЗ_Партии.К КАК ЧИСЛО(15, 2))) КАК КолвоПродаж,
+	СУММА(Реализации.СуммаЗакупСНДСОборот) КАК СуммаПродажЗакупСНДС
+ПОМЕСТИТЬ втРасход
+ИЗ
+	РегистрНакопления.УЗ_РеализацииККМ.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Месяц,
+			СкладКод В
+					(ВЫБРАТЬ
+						вт.Код
+					ИЗ
+						втСклады КАК вт)
+				И ТоварКод В
+					(ВЫБРАТЬ
+						вт.Код
+					ИЗ
+						втТовары КАК вт)) КАК Реализации
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втТовары КАК втТовары
+		ПО Реализации.ТоварКод = втТовары.Код
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втСклады КАК втСклады
+		ПО Реализации.СкладКод = втСклады.Код
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.УЗ_Партии КАК УЗ_Партии
+		ПО Реализации.ПартияКод = УЗ_Партии.Код
+ГДЕ
+	Реализации.КоличествоОборот &gt; 0
+
+СГРУППИРОВАТЬ ПО
+	Реализации.Период,
+	втСклады.Ссылка,
+	втТовары.Ссылка,
+	втТовары.Производитель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КорректировкиРасходаОбороты.Товар КАК Товар,
+	КорректировкиРасходаОбороты.Склад КАК Склад,
+	КорректировкиРасходаОбороты.КоличествоОборот КАК КолвоКорректировка
+ПОМЕСТИТЬ втКорректировки
+ИЗ
+	РегистрНакопления.КорректировкиРасхода.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			,
+			Товар В
+					(ВЫБРАТЬ
+						вт.Ссылка
+					ИЗ
+						втТовары КАК вт)
+				И Склад В
+					(ВЫБРАТЬ
+						вт.Ссылка
+					ИЗ
+						втСклады КАК вт)) КАК КорректировкиРасходаОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втРасход.Товар КАК Товар,
+	втРасход.Склад КАК Склад,
+	втРасход.КолвоПродаж + ЕСТЬNULL(втКорректировки.КолвоКорректировка, 0) КАК КолвоСкоррРасход,
+	втРасход.СуммаПродажЗакупСНДС + ВЫБОР
+		КОГДА втКорректировки.КолвоКорректировка ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ втКорректировки.КолвоКорректировка * (втРасход.СуммаПродажЗакупСНДС / втРасход.КолвоПродаж)
+	КОНЕЦ КАК СуммаСкоррРасход
+ИЗ
+	втРасход КАК втРасход
+		ЛЕВОЕ СОЕДИНЕНИЕ втКорректировки КАК втКорректировки
+		ПО втРасход.Товар = втКорректировки.Товар
+			И втРасход.Склад = втКорректировки.Склад
+		ЛЕВОЕ СОЕДИНЕНИЕ втСкорректированныеДвиженияГруппировка КАК втСкорректированныеДвиженияГруппировка
+		ПО втРасход.Период = втСкорректированныеДвиженияГруппировка.Дата
+			И втРасход.Производитель = втСкорректированныеДвиженияГруппировка.Производитель
+ГДЕ
+	втСкорректированныеДвиженияГруппировка.Дата ЕСТЬ NULL
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	втСкорректированныеДвижения.Товар,
+	втСкорректированныеДвижения.Склад,
+	втСкорректированныеДвижения.Количество,
+	втСкорректированныеДвижения.СуммаЗакупСНДС
+ИЗ
+	втСкорректированныеДвижения КАК втСкорректированныеДвижения</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КолвоСкоррРасход</dataPath>
+		<expression>Сумма(КолвоСкоррРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСкоррРасход</dataPath>
+		<expression>Сумма(СуммаСкоррРасход)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ДФ=dd.MM.yyyy</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ДФ=dd.MM.yyyy</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Товар</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Товар.Код</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад.Код</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КолвоСкоррРасход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаСкоррРасход</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Товар</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Товар.Производитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Производители.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Товар</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Склад</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по продажам товара</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

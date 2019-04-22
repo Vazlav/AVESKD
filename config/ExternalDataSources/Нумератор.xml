@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ExternalDataSource uuid="f1be9969-0011-436c-a553-f9c43a0c10a5">
+		<InternalInfo>
+			<xr:GeneratedType name="ExternalDataSourceManager.Нумератор" category="Manager">
+				<xr:TypeId>26e0a606-236e-4368-a5cc-8f4a10cdf89b</xr:TypeId>
+				<xr:ValueId>a2be6c2f-33e4-47fb-8aeb-c950730bfd7f</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceTablesManager.Нумератор" category="TablesManager">
+				<xr:TypeId>6d2af1d7-8a0d-457b-bd16-ae190bc64423</xr:TypeId>
+				<xr:ValueId>c93dd9c3-9fb2-425f-9229-e24f958d0da2</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceCubesManager.Нумератор" category="CubesManager">
+				<xr:TypeId>5fe7ce96-d13c-481a-a8a6-284896b47f02</xr:TypeId>
+				<xr:ValueId>7ba06d44-612b-42ab-aa0a-854d182c96e7</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>Нумератор</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нумератор</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DataLockControlMode>Automatic</DataLockControlMode>
+		</Properties>
+		<ChildObjects>
+			<Table>ave_skd_public_seq_default_stat</Table>
+			<Function uuid="060a0ad3-8c6d-4177-913e-3fc63680ff2c">
+				<Properties>
+					<Name>public_default_currval</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущее значение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<ReturnValue>true</ReturnValue>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>20</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<ExpressionInDataSource>currval('public.default')</ExpressionInDataSource>
+				</Properties>
+			</Function>
+			<Function uuid="f99298f5-e7f3-4f50-9398-b790a39cbc0e">
+				<Properties>
+					<Name>public_default_nextval</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Следующее значение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<ReturnValue>true</ReturnValue>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>20</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<ExpressionInDataSource>nextval('public.default')</ExpressionInDataSource>
+				</Properties>
+			</Function>
+			<Function uuid="1b66f5c7-6118-4eaa-8b44-420caf2cb4a4">
+				<Properties>
+					<Name>public_default_setval</Name>
+					<Synonym/>
+					<Comment/>
+					<ReturnValue>true</ReturnValue>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>20</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<ExpressionInDataSource>setval('public.default', &amp;1)</ExpressionInDataSource>
+				</Properties>
+			</Function>
+			<Function uuid="602be3fc-a2b4-467b-80fc-37e9463b3238">
+				<Properties>
+					<Name>public_default_setval_1</Name>
+					<Synonym/>
+					<Comment/>
+					<ReturnValue>true</ReturnValue>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>20</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<ExpressionInDataSource>setval('public.default', &amp;1, &amp;2)</ExpressionInDataSource>
+				</Properties>
+			</Function>
+		</ChildObjects>
+	</ExternalDataSource>
+</MetaDataObject>

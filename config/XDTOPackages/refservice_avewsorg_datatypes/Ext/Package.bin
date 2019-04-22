@@ -1,0 +1,70 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.refservice.avews.org">
+	<objectType name="rs_goods_list">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="rs_goods_string" type="d3p1:rs_goods_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_goods_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+	</objectType>
+	<objectType name="rs_apt_list">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="rs_apt_string" type="d3p1:rs_apt_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_apt_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+		<property name="metro_code" type="xs:integer"/>
+		<property name="phone" type="xs:string"/>
+		<property name="operating_hours" type="xs:string"/>
+	</objectType>
+	<objectType name="rs_metro_routing">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="rs_metro_routing_string" type="d3p1:rs_metro_routing_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_metro_routing_string">
+		<property name="departure_station_code" type="xs:integer"/>
+		<property name="arrival_station_code" type="xs:integer"/>
+		<property name="route_length" type="xs:integer"/>
+	</objectType>
+	<objectType name="rs_metro_list">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="rs_metro_string" type="d3p1:rs_metro_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_metro_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+	</objectType>
+	<objectType name="rs_apt_barnd_grp_list">
+		<property name="rs_apt_brand_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_apt_brand_grp_string">
+		<property name="code" type="xs:integer"/>
+		<property name="name" type="xs:string"/>
+	</objectType>
+	<objectType name="goods_damand_table">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="goods_demand_string" type="d3p1:goods_demand_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="goods_demand_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="grp_id" type="xs:integer"/>
+	</objectType>
+	<objectType name="demand_parameters">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="goods_table" type="d3p1:goods_damand_table"/>
+		<property name="departure_station_code" type="xs:integer"/>
+		<property name="records_limit" type="xs:integer"/>
+	</objectType>
+	<objectType name="rs_answer_list">
+		<property xmlns:d3p1="http://www.refservice.avews.org" name="rs_answer_string" type="d3p1:rs_answer_string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="rs_answer_string">
+		<property name="good_code" type="xs:integer"/>
+		<property name="prt" type="xs:string"/>
+		<property name="apteka" type="xs:integer"/>
+		<property name="qnt" type="xs:integer"/>
+		<property name="price" type="xs:float"/>
+		<property name="grp_id" type="xs:integer"/>
+		<property name="qnt_grp_id" type="xs:integer"/>
+		<property name="prt_date" type="xs:dateTime"/>
+		<property name="metro_code" type="xs:integer"/>
+		<property name="metro_route_length" type="xs:integer"/>
+		<property name="wrk_time" type="xs:string"/>
+		<property name="apt_phone" type="xs:string"/>
+	</objectType>
+</package>

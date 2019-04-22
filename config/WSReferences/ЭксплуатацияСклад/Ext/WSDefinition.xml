@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="ws_ekspl.org"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="ws_ekspl.org"
+		name="ws_ekspl_skd"
+		targetNamespace="ws_ekspl.org">
+	<types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xs1="ws_ekspl.org"
+				targetNamespace="ws_ekspl.org"
+				attributeFormDefault="unqualified"
+				elementFormDefault="qualified">
+			<xs:complexType name="FL_String">
+				<xs:sequence>
+					<xs:element name="FCode"
+							type="xs:integer"/>
+					<xs:element name="FName"
+							type="xs:string"/>
+					<xs:element name="FQnt"
+							type="xs:integer"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FML_String">
+				<xs:sequence>
+					<xs:element name="FMCode"
+							type="xs:integer"/>
+					<xs:element name="FMName"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FSL_String">
+				<xs:sequence>
+					<xs:element name="FSName"
+							type="xs:string"/>
+					<xs:element name="FSCode"
+							type="xs:integer"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FormaList">
+				<xs:sequence>
+					<xs:element name="FL_Strings"
+							type="xsd1:FL_String"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FormaModelList">
+				<xs:sequence>
+					<xs:element name="FML_Strings"
+							type="xsd1:FML_String"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FormaStoresList">
+				<xs:sequence>
+					<xs:element name="FSL_Strings"
+							type="xsd1:FSL_String"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="add_update_firm">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FirmName"
+								type="xs:string"/>
+						<xs:element name="INN"
+								type="xs:string"/>
+						<xs:element name="KPP"
+								type="xs:string"/>
+						<xs:element name="OKPO"
+								type="xs:string"/>
+						<xs:element name="PrintName"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="add_update_firmResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="add_update_apt">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AptCode"
+								type="xs:integer"/>
+						<xs:element name="AptName"
+								type="xs:string"/>
+						<xs:element name="FirmINN"
+								type="xs:string"/>
+						<xs:element name="DelMark"
+								type="xs:boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="add_update_aptResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+	<message name="add_update_firmRequestMessage">
+		<part name="parameters"
+				element="tns:add_update_firm"/>
+	</message>
+	<message name="add_update_firmResponseMessage">
+		<part name="parameters"
+				element="tns:add_update_firmResponse"/>
+	</message>
+	<message name="add_update_aptRequestMessage">
+		<part name="parameters"
+				element="tns:add_update_apt"/>
+	</message>
+	<message name="add_update_aptResponseMessage">
+		<part name="parameters"
+				element="tns:add_update_aptResponse"/>
+	</message>
+	<portType name="ws_ekspl_skdPortType">
+		<operation name="add_update_firm">
+			<input name="add_update_firmRequest"
+					message="tns:add_update_firmRequestMessage"/>
+			<output name="add_update_firmResponse"
+					message="tns:add_update_firmResponseMessage"/>
+		</operation>
+		<operation name="add_update_apt">
+			<input name="add_update_aptRequest"
+					message="tns:add_update_aptRequestMessage"/>
+			<output name="add_update_aptResponse"
+					message="tns:add_update_aptResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="ws_ekspl_skdSoapBinding"
+			type="tns:ws_ekspl_skdPortType">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="add_update_firm">
+			<soapbind:operation style="document"
+					soapAction="ws_ekspl.org#ws_ekspl_skd:add_update_firm"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="add_update_apt">
+			<soapbind:operation style="document"
+					soapAction="ws_ekspl.org#ws_ekspl_skd:add_update_apt"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="ws_ekspl_skdSoap12Binding"
+			type="tns:ws_ekspl_skdPortType">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="add_update_firm">
+			<soap12bind:operation style="document"
+					soapAction="ws_ekspl.org#ws_ekspl_skd:add_update_firm"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="add_update_apt">
+			<soap12bind:operation style="document"
+					soapAction="ws_ekspl.org#ws_ekspl_skd:add_update_apt"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="ws_ekspl_skd">
+		<port name="ws_ekspl_skdSoap"
+				binding="tns:ws_ekspl_skdSoapBinding">
+			<documentation> 
+				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+			</documentation>
+			<soapbind:address location="http://id-app-01:8080/ave_ekspl_skd/ws/ws_ekspl.1cws"/>
+		</port>
+		<port name="ws_ekspl_skdSoap12"
+				binding="tns:ws_ekspl_skdSoap12Binding">
+			<soap12bind:address location="http://id-app-01:8080/ave_ekspl_skd/ws/ws_ekspl.1cws"/>
+		</port>
+	</service>
+</definitions>

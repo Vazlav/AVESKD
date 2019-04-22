@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WebService uuid="e3096d34-a4a6-4881-a50a-4d0e3361f86d">
+		<Properties>
+			<Name>ave_documents</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ave documents</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<Namespace>http://documents.avews.org</Namespace>
+			<XDTOPackages/>
+			<DescriptorFileName>ave_documents.1cws</DescriptorFileName>
+			<ReuseSessions>DontUse</ReuseSessions>
+			<SessionMaxAge>20</SessionMaxAge>
+		</Properties>
+		<ChildObjects>
+			<Operation uuid="e59dc9d7-36d4-4961-a46c-55549a91818b">
+				<Properties>
+					<Name>hellow</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Hellow</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<XDTOReturningValueType>xs:string</XDTOReturningValueType>
+					<Nillable>false</Nillable>
+					<Transactioned>false</Transactioned>
+					<ProcedureName>hellow</ProcedureName>
+					<DataLockControlMode>Automatic</DataLockControlMode>
+				</Properties>
+				<ChildObjects/>
+			</Operation>
+			<Operation uuid="302d7a53-6006-4a6c-ba7b-328e8a7768d2">
+				<Properties>
+					<Name>set_brak</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Set brak</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<XDTOReturningValueType>xs:integer</XDTOReturningValueType>
+					<Nillable>false</Nillable>
+					<Transactioned>false</Transactioned>
+					<ProcedureName>set_brak</ProcedureName>
+					<DataLockControlMode>Automatic</DataLockControlMode>
+				</Properties>
+				<ChildObjects>
+					<Parameter uuid="d677df7f-526c-4431-aa6c-328cc6cf379e">
+						<Properties>
+							<Name>apt_code</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Apt code</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Код аптеки</Comment>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="cfa4eb8b-f4e3-4846-8aa1-8eacb71ac9c5">
+						<Properties>
+							<Name>pa_number</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Pa number</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Номер приемного акта</Comment>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="376df4a9-d709-4564-8b25-a50e99ebeb79">
+						<Properties>
+							<Name>pa_date</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Pa date</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Дата приемного акта</Comment>
+							<XDTOValueType>xs:dateTime</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="c00b7067-dcf8-4506-b332-e2046c159064">
+						<Properties>
+							<Name>part_number</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Part number</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Номер партии (её наименование, строка 13 символов)</Comment>
+							<XDTOValueType>xs:string</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="a4e8e17f-0d84-47d2-8d1c-677fa082317b">
+						<Properties>
+							<Name>reason</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Reason</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Причина возникновения брака (в произвольной форме, строка)</Comment>
+							<XDTOValueType>xs:string</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="3ccdc2f9-a8d0-421a-a781-559c08eb91fe">
+						<Properties>
+							<Name>qnt</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Qnt</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+				</ChildObjects>
+			</Operation>
+			<Operation uuid="b9a4d34f-d12d-4bd1-a1f0-41c504222b2a">
+				<Properties>
+					<Name>set_nedovoz</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Set nedovoz</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<XDTOReturningValueType>xs:integer</XDTOReturningValueType>
+					<Nillable>false</Nillable>
+					<Transactioned>false</Transactioned>
+					<ProcedureName>set_nedovoz</ProcedureName>
+					<DataLockControlMode>Automatic</DataLockControlMode>
+				</Properties>
+				<ChildObjects>
+					<Parameter uuid="976db626-f04f-4a2a-87e2-9fb6319eb756">
+						<Properties>
+							<Name>apt_code</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Apt code</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Код аптеки</Comment>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="eb14ce46-6cee-4a15-afe5-a7cb1f61c6fc">
+						<Properties>
+							<Name>pa_number</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Pa number</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Номер приемного акта</Comment>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="048a55cc-c8dd-4582-bcc5-e8cb9eecaa8a">
+						<Properties>
+							<Name>pa_date</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Pa date</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Дата приемного акта</Comment>
+							<XDTOValueType>xs:dateTime</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="6f294026-cec2-46f8-804c-2664faec1a78">
+						<Properties>
+							<Name>part_number</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Part number</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Номер партии (её наименование, строка 13 символов)</Comment>
+							<XDTOValueType>xs:string</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="193b3936-d355-43ba-9013-5b3d77750473">
+						<Properties>
+							<Name>qnt</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Qnt</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+				</ChildObjects>
+			</Operation>
+			<Operation uuid="6c5919c8-2358-47a6-928f-4050cac9e51b">
+				<Properties>
+					<Name>delete_to</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Delete to</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Удаление товарного отчета в аптеке.</Comment>
+					<XDTOReturningValueType>xs:integer</XDTOReturningValueType>
+					<Nillable>false</Nillable>
+					<Transactioned>false</Transactioned>
+					<ProcedureName>delete_to</ProcedureName>
+					<DataLockControlMode>Automatic</DataLockControlMode>
+				</Properties>
+				<ChildObjects>
+					<Parameter uuid="f4521e99-1e78-4a5c-814a-0ebc2431b9bd">
+						<Properties>
+							<Name>apt_code</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Apt code</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Код аптеки</Comment>
+							<XDTOValueType>xs:integer</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="421573ae-c6cc-4178-914a-760365edf2ed">
+						<Properties>
+							<Name>to_begin_date</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>To begin date</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment>Дата С удаляемого товарного отчета</Comment>
+							<XDTOValueType>xs:dateTime</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+				</ChildObjects>
+			</Operation>
+		</ChildObjects>
+	</WebService>
+</MetaDataObject>

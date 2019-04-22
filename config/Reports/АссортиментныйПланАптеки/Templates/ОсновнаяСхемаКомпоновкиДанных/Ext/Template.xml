@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Q_макс</dataPath>
+			<field>Q_макс</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Q_мин</dataPath>
+			<field>Q_мин</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаАП</dataPath>
+			<field>ГруппаАП</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодТовара</dataPath>
+			<field>КодТовара</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеТовара</dataPath>
+			<field>НаименованиеТовара</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НЗ</dataPath>
+			<field>НЗ</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	МатрицаНЗ.Товар,
+	СУММА(ВЫБОР
+			КОГДА МатрицаНЗ.ВидНЗ = ЗНАЧЕНИЕ(Перечисление.ВидыНЗ.НЗ_1)
+				ТОГДА МатрицаНЗ.НЗ
+			ИНАЧЕ 0
+		КОНЕЦ) КАК НЗ_1,
+	СУММА(ВЫБОР
+			КОГДА МатрицаНЗ.ВидНЗ = ЗНАЧЕНИЕ(Перечисление.ВидыНЗ.НЗ_2)
+				ТОГДА МатрицаНЗ.НЗ
+			ИНАЧЕ 0
+		КОНЕЦ) КАК НЗ_2,
+	СУММА(ВЫБОР
+			КОГДА МатрицаНЗ.ВидНЗ = ЗНАЧЕНИЕ(Перечисление.ВидыНЗ.НЗ_3)
+				ТОГДА МатрицаНЗ.НЗ
+			ИНАЧЕ 0
+		КОНЕЦ) КАК НЗ_3
+ПОМЕСТИТЬ втМатрицаНЗ
+ИЗ
+	РегистрСведений.МатрицаНЗ КАК МатрицаНЗ
+ГДЕ
+	МатрицаНЗ.Аптека = &amp;Аптека
+
+СГРУППИРОВАТЬ ПО
+	МатрицаНЗ.Товар
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Матрица.Товар.Код КАК КодТовара,
+	Матрица.Товар.Наименование КАК НаименованиеТовара,
+	ЕСТЬNULL(Матрица.Товар.ГруппаАП.Наименование, "") КАК ГруппаАП,
+	Матрица.КуМин КАК Q_мин,
+	Матрица.КуМакс КАК Q_макс,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(МатрицаНЗ.НЗ_1, 0) &gt; 0
+			ТОГДА ЕСТЬNULL(МатрицаНЗ.НЗ_1, 0)
+		КОГДА ЕСТЬNULL(МатрицаНЗ.НЗ_2, 0) &gt; 0
+			ТОГДА ЕСТЬNULL(МатрицаНЗ.НЗ_2, 0)
+		ИНАЧЕ ЕСТЬNULL(МатрицаНЗ.НЗ_3, 0)
+	КОНЕЦ КАК НЗ
+ИЗ
+	РегистрСведений.Матрица КАК Матрица
+		ЛЕВОЕ СОЕДИНЕНИЕ втМатрицаНЗ КАК МатрицаНЗ
+		ПО Матрица.Товар = МатрицаНЗ.Товар
+ГДЕ
+	Матрица.Аптека = &amp;Аптека
+</query>
+	</dataSet>
+	<parameter>
+		<name>Аптека</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Аптека</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.МестаХранения</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КодТовара</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеТовара</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГруппаАП</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Q_мин</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Q_макс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НЗ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Аптека</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>НаименованиеТовара</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

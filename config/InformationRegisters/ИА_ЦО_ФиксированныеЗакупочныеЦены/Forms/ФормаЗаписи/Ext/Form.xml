@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Регион" id="4">
+			<DataPath>Запись.Регион</DataPath>
+			<ContextMenu name="РегионКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Товар" id="7">
+			<DataPath>Запись.Товар</DataPath>
+			<ContextMenu name="ТоварКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ТоварРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ФиксированнаяЦена" id="10">
+			<DataPath>Запись.ФиксированнаяЦена</DataPath>
+			<ContextMenu name="ФиксированнаяЦенаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ФиксированнаяЦенаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="ДатаНачалаДействияЦены" id="13">
+			<DataPath>Запись.ДатаНачалаДействияЦены</DataPath>
+			<ContextMenu name="ДатаНачалаДействияЦеныКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ДатаНачалаДействияЦеныРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ДатаОкончанияДействияЦены" id="16">
+			<DataPath>Запись.ДатаОкончанияДействияЦены</DataPath>
+			<ContextMenu name="ДатаОкончанияДействияЦеныКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ДатаОкончанияДействияЦеныРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="Комментарий" id="19">
+			<DataPath>Запись.Комментарий</DataPath>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="21"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ИА_ЦО_ФиксированныеЗакупочныеЦены</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

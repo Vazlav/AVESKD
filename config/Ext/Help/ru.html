@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><title></title><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><meta name="GENERATOR" content="MSHTML 11.00.9600.19236"></meta><meta name="AUTHOR" content="Николай Городский"></meta><meta name="CREATED" content="20070118;23492542"></meta><meta name="CHANGEDBY" content="Николай Городский"></meta><meta name="CHANGED" content="20070119;2130351"></meta><style>@page  {size: 21cm 29.7cm; margin: 2cm; }
+P {
+	MARGIN-BOTTOM: 0.21cm
+}
+</style></head><body lang="ru-RU" dir="ltr">
+<div type="HEADER">
+<p style="MARGIN-BOTTOM: 0.5cm"><sdfield type="DATETIME" sdnum="1049;1049;DD.MM.YY" sdval="39101,0897252315">19.01.07</sdfield><sdfield type="DATETIME" sdnum="1049;1049;HH:MM">02:13</sdfield><font face="Arial Black, sans-serif"><font style="FONT-SIZE: 8pt" size="1">Описание идеологии БД <sdfield type="PAGE" format="PAGE" subtype="RANDOM">2</sdfield> / <sdfield type="DOCSTAT" format="PAGE" subtype="PAGE">2</sdfield></font></font></p></div>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Учетная политика конфигурации</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Учет товаров на оптовых складах ведется в закупочных ценах.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Учет товаров на аптеках ведется в розничных ценах (и закупочных параллельно).</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Товар учитывается по параметрам СУММА и КОЛИЧЕСТВО.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Учет товаров <b><font color="#ff0000">ЖНВЛС</font></b> ведется по партиям, они обклеиваются штрихкодами. Таким образом по товарам <b><font color="#ff0000">ЖНВЛС</font></b> всегда известна закупочная стоимость каждой конкретной упаковки.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Товар НЕ жнвлс учитывается по средней стоимости. При движении товара СУММА остатка товара делится на КОЛИЧЕСТВО ОСТАВШЕГОСЯ и умножается на КОЛИЧЕСТВО НЕОБХОДИМОЕ. При этом, если результат деления имеет более 2-х знаков после запятой разница корректируется последней единицей товара.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Политика ценообразования</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">В качестве перечня номенклатуры выступает справочник Ассортиментный План.В нем задаются параметры товаров и минимальные и максимальные цены по всей сети. </font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">В справочнике АП торговой точки задаются цены для конкретной точки, а также минимальное и максимальное количество товара на точке, для расчета автоматического заказа.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Политика учета товара по ставкам НДС</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Для ускорения получения отчетов по товару в разрезе ставок НДС ведется параллельный учет в отдельном регистре. Учет по этому регистру СУММОВОЙ, без количества. Так же этот регистр используется для выгрузки данных в бухгалтерию.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Почему не должны вылезать копейки</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left">ИБО...</p>
+<ol><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Поступление товара идет как Колво Сумма =&gt; т.о. Удается получить документ всегда совпадающий с документом поставщика</font></font></font></p>
+</li><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">На розничном складе товар числится по РОЗНИЧНОЙ СУММЕ = колво товара * розничную цену, назначенную на каждую единицу товара. =&gt; т.о. Сумма розничная товара ВСЕГДА кратна его количеству. Если товар переоценивается – то тоже весь остаток * новую цену-&gt; тоже сумма кратна количеству.</font></font></font></p>
+</li><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Фискальный регистратор продает товар по алгоритму Цена товара * количество =&gt; розничная сумма всегда списывается в 0.</font></font></font></p>
+</li><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Закупочная сумма списывается по алгоритму Сумма/КолвоОст*КолвоНадо и если остался хвост корректировка последней единицей =&gt; т.о. Тоже списывается в 0.</font></font></font></p></li></ol><p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Переоценка</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Работает в 3 этапа:</font></font></font></p>
+<ol><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Создается документ-команда на переоценку </font></font></font></p>
+</li><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Отправляется на аптеку. Там происходит переоценка товара имеющегося в наличии на момент ФАКТИЧЕСКОЙ переоценки (читай пересчета, переклейки ценников если необходимо, перераспечатки ценников для полок и т.д....), т.к. На момент переоценки в офисе не всегда известно количество оставшегося товара и тормозить продажи ради переоценки не логично.</font></font></font></p>
+</li><li>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Вместе с выгрузкой, с аптеки приходит документ ФАКТИЧЕСКАЯ переоценка, в котором содержится количество РЕАЛЬНО переоцененного товара и собственно суммы переоценки.</font></font></font></p></li></ol><p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Взаиморасчеты с поставщиками</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Ведутся в одельном регистре. Данные об оплатах загружаются из бухгалтерии. Это позволит избавить менеджеров от необходимости шариться в бухгалтерской базе.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff"><font face="Arial, sans-serif"><font style="FONT-SIZE: 15pt" size="4"><b>Расколбас данных между базами</b></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Вариант 1. Производить при помощи отдельного SQL сервера, на котором будет крутиться некая база с таблицами обмена. Поскольку аптеки подключаются по VPN можно организовать им доступ к этому серверу и обмен данными организовать в виде прямых запрсов к серверу-обменщику. Параллельно предусмотреть вариант файлового обмена.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Вариант 2. Опять же Аптеки на VPN. Из офиса доступны их SQL сервера. Обмен производить через сервера аптек... </font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Вариант 3. 1+2</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><br></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2">Вариант 4. Чисто файловый обмен... не самый удобный для пользователей, но наиболее надежный и медленный.</font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000"><font face="Arial, sans-serif"><font size="2"></font></font></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"> </p>
+<p style="MARGIN-BOTTOM: 0cm" align="center"><font color="#0000ff" size="6" face="Arial"><strong>Список изменений</strong></font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#0000ff"><strong>1.5.1.3</strong>  </font></p>
+<blockquote style="MARGIN-RIGHT: 0px" dir="ltr">
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font color="#000000" size="2" face="Arial">Добавлен резерв подбора в перемещении</font></p>
+<p style="MARGIN-BOTTOM: 0cm" align="left"><font size="2" face="Arial">Исправлен отчет ДвижениеТовара1 итоговая строка считается правильно независимо от даты начала отчета. Развернута таблица ланшафтом.</font></p></blockquote>
+<p style="MARGIN-BOTTOM: 0cm" align="center"> </p></body></html>

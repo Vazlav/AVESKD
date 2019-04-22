@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ExternalDataSource uuid="2aa47380-9bb4-419d-836e-b4facb0fa2ec">
+		<InternalInfo>
+			<xr:GeneratedType name="ExternalDataSourceManager.ЦТБ" category="Manager">
+				<xr:TypeId>95b84ac9-3c8a-4022-99a1-9def08d83a7c</xr:TypeId>
+				<xr:ValueId>5792d691-5a02-4c18-be3b-ebd87b9894e0</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceTablesManager.ЦТБ" category="TablesManager">
+				<xr:TypeId>37b9a934-868f-4c2e-a30a-804e1d9efd1e</xr:TypeId>
+				<xr:ValueId>6e6c9a0d-cb76-40d9-85b8-d416f813c889</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceCubesManager.ЦТБ" category="CubesManager">
+				<xr:TypeId>1c4ac036-e5aa-4b97-81d5-bedcdc9081d7</xr:TypeId>
+				<xr:ValueId>151b1390-9f96-419d-b244-f35bf0ab824c</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЦТБ</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Центральная транспортная база</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DataLockControlMode>Automatic</DataLockControlMode>
+		</Properties>
+		<ChildObjects>
+			<Table>repl_esina_b2f_errors</Table>
+			<Table>apt_retail_repl_repl_fo_inactive_stat</Table>
+			<Table>apt_retail_repl_repl_view__esina_b2f_errors</Table>
+			<Table>apt_retail_repl_repl_b2f_out_statistic</Table>
+		</ChildObjects>
+	</ExternalDataSource>
+</MetaDataObject>

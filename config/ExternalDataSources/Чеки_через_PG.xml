@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ExternalDataSource uuid="a90d02a8-1362-4893-89d7-8aba2e5ebcb9">
+		<InternalInfo>
+			<xr:GeneratedType name="ExternalDataSourceManager.Чеки_через_PG" category="Manager">
+				<xr:TypeId>717bcb4a-0a17-43c3-bff6-68bbcd2a6169</xr:TypeId>
+				<xr:ValueId>d3a30acf-6f90-4f8a-b2ee-abc893b164d2</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceTablesManager.Чеки_через_PG" category="TablesManager">
+				<xr:TypeId>895a9cd3-f3b8-4749-9f51-fc874ed3fdb5</xr:TypeId>
+				<xr:ValueId>cf157220-f001-4eda-b127-cf88dbe0c93b</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ExternalDataSourceCubesManager.Чеки_через_PG" category="CubesManager">
+				<xr:TypeId>f05b60db-7d04-480e-8c95-b17091c510f0</xr:TypeId>
+				<xr:ValueId>795d9973-dae0-4a0f-b72a-725e9c91f102</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>Чеки_через_PG</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чеки через PG</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Данные чеков, полученные через обмен посредством PostgeSQL.</Comment>
+			<DataLockControlMode>Automatic</DataLockControlMode>
+		</Properties>
+		<ChildObjects>
+			<Table>ids_apteka_repl_repl_packs_for_1c</Table>
+		</ChildObjects>
+	</ExternalDataSource>
+</MetaDataObject>

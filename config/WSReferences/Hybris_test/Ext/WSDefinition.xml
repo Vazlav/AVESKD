@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="urn:apteka366:pi:onc:Reservation"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="urn:apteka366:pi:onc:Reservation"
+		name="ReservationStatusOut"
+		targetNamespace="urn:apteka366:pi:onc:Reservation">
+	<documentation> </documentation>
+	<types>
+		<xsd:schema xmlns="urn:apteka366:pi:onc:Reservation"
+				xmlns:p1="urn:apteka366:pi:onc:Reservation"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				targetNamespace="urn:apteka366:pi:onc:Reservation">
+			<xsd:element name="ReservationStatusRequest"
+					type="xsd1:ReservationStatusRequest"/>
+			<xsd:complexType name="ReservationStatusList">
+				<xsd:annotation>
+					<xsd:documentation lang="EN">Список статусов бронирования</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">c7f49dceb28811e7830500000d676b2a</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="OrderStatus"
+							type="xsd1:Status"
+							maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">ee16ff04b28811e794f400ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Статус бронирования</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ReservationStatusRequest">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">15a72bc2b28611e7bde300000d676b2a</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="Orders"
+							type="xsd1:ReservationsStatusList">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">2bc9a9e1b28c11e7abb200ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Список бронирований</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ReservationStatuses">
+				<xsd:annotation>
+					<xsd:documentation lang="EN">Статусы бронирования</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">86c72134b28911e7adc300000d676b2a</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="OrderId"
+							type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">876af047b28911e7a19c00ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Идентификатор заказа Hybris</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="StatusList"
+							type="xsd1:ReservationStatusList">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">b0526f5ab28911e7825f00ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Список статусов</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Status">
+				<xsd:annotation>
+					<xsd:documentation lang="EN">Статус бронирования</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">d49a070fb28a11e7ade800000d676b2a</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="StatusId"
+							type="xsd:string">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">98bfd2b5b28811e7b2a600ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Идентификатор статуса</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Completed"
+							type="xsd:integer">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">98bfd2b6b28811e7846600ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Признак полного бронирования</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="StatusTimestamp"
+							type="xsd:dateTime">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">98bfd2b7b28811e7b97a00ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Дата и время установки статуса</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ReservationsStatusList">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">f6e81611b28b11e7820f00000d676b2a</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="Order"
+							type="xsd1:ReservationStatuses"
+							maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">c63a4333b28c11e7c26700ac9f64d872</xsd:appinfo>
+							<xsd:documentation>Бронирование</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+	<message name="ReservationStatusRequest">
+		<documentation> </documentation>
+		<part name="ReservationStatusRequest"
+				element="tns:ReservationStatusRequest"/>
+	</message>
+	<portType name="ReservationStatusOut">
+		<documentation> </documentation>
+		<operation name="SendReservationStatusAsync">
+			<documentation> </documentation>
+			<input name="SendReservationStatusAsync"
+					message="tns:ReservationStatusRequest"/>
+		</operation>
+	</portType>
+	<binding name="ReservationStatusOutBinding"
+			type="tns:ReservationStatusOut">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="SendReservationStatusAsync">
+			<soapbind:operation style="document"
+					soapAction="http://sap.com/xi/WebService/soap1.1"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+		</operation>
+	</binding>
+	<service name="ReservationStatusOutService">
+		<port name="HTTP_Port"
+				binding="tns:ReservationStatusOutBinding">
+			<soapbind:address location="http://sap-ci-poq.id-soft.network:52400/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_ONC&amp;receiverParty=&amp;receiverService=&amp;interface=ReservationStatusOut&amp;interfaceNamespace=urn%3Aapteka366%3Api%3Aonc%3AReservation"/>
+		</port>
+		<port name="HTTPS_Port"
+				binding="tns:ReservationStatusOutBinding">
+			<soapbind:address location="https://sap-ci-poq.id-soft.network:52401/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BC_ONC&amp;receiverParty=&amp;receiverService=&amp;interface=ReservationStatusOut&amp;interfaceNamespace=urn%3Aapteka366%3Api%3Aonc%3AReservation"/>
+		</port>
+	</service>
+</definitions>
